@@ -1,0 +1,18 @@
+# 🔒 절대 커밋하면 안 되는 것들
+devnet-wallet.json
+*-wallet.json
+*.key
+*.pem
+.env
+.env.*
+
+# Node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Token info (민감할 수 있음)
+token-info.json
