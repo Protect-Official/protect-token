@@ -1,0 +1,187 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0A1628;
+    color: #E8ECF1;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+code { font-family: 'JetBrains Mono', monospace; }
+
+/* ===== LAYOUT ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.center { text-align: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 768px) { .grid-3 { grid-template-columns: 1fr; } }
+
+/* ===== NAV ===== */
+.nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 16px 0;
+    transition: background 0.3s, backdrop-filter 0.3s;
+}
+.nav.scrolled { background: rgba(10,22,40,0.95); backdrop-filter: blur(12px); }
+.nav-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-weight: 900; font-size: 20px; color: #F5A623; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 14px; font-weight: 500; opacity: 0.8; transition: opacity 0.2s; }
+.nav-links a:hover { opacity: 1; }
+.nav-toggle { display: none; background: none; border: none; color: #F5A623; font-size: 24px; cursor: pointer; }
+@media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+        display: none; flex-direction: column; position: absolute;
+        top: 60px; left: 0; right: 0; background: #0A1628;
+        padding: 24px; gap: 16px; border-bottom: 1px solid rgba(245,166,35,0.2);
+    }
+    .nav-links.open { display: flex; }
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-block; padding: 12px 28px; border-radius: 8px;
+    font-weight: 600; font-size: 15px; transition: all 0.2s; cursor: pointer;
+}
+.btn-sm { padding: 8px 18px; font-size: 13px; }
+.btn-primary { background: #F5A623; color: #0A1628; }
+.btn-primary:hover { background: #FFB84D; transform: translateY(-1px); }
+.btn-outline { border: 2px solid rgba(245,166,35,0.5); color: #F5A623; }
+.btn-outline:hover { border-color: #F5A623; background: rgba(245,166,35,0.1); }
+
+/* ===== HERO ===== */
+.hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 120px 0 80px;
+}
+.hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(245,166,35,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(46,204,113,0.05) 0%, transparent 50%);
+}
+.hero-tag {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
+    color: #F5A623; margin-bottom: 20px;
+}
+.hero-title {
+    font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.1;
+    margin-bottom: 16px;
+}
+.hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 22px); color: #F5A623; font-weight: 500;
+    margin-bottom: 20px; font-style: italic;
+}
+.hero-desc {
+    font-size: 17px; opacity: 0.7; max-width: 600px; margin: 0 auto 32px;
+}
+.hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-stats { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-value { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #2ECC71; }
+.stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 96px 0; }
+.section-dark { background: #060F1D; }
+.section-title {
+    font-size: clamp(28px, 4vw, 42px); font-weight: 900; text-align: center; margin-bottom: 12px;
+}
+.section-subtitle {
+    font-size: 17px; opacity: 0.6; text-align: center; margin-bottom: 48px;
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 32px; transition: border-color 0.2s;
+}
+.card:hover { border-color: rgba(245,166,35,0.3); }
+.card-icon { font-size: 36px; margin-bottom: 16px; }
+.card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+.card p { font-size: 15px; opacity: 0.7; line-height: 1.6; }
+
+/* ===== TOKENOMICS ===== */
+.tokenomics-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px;
+}
+@media (max-width: 768px) { .tokenomics-grid { grid-template-columns: repeat(2, 1fr); } }
+.token-item {
+    background: rgba(255,255,255,0.04); border-radius: 12px; padding: 24px; text-align: center;
+    border-left: 3px solid;
+}
+.token-lp { border-color: #F5A623; }
+.token-donate { border-color: #2ECC71; }
+.token-airdrop { border-color: #3498DB; }
+.token-marketing { border-color: #9B59B6; }
+.token-team { border-color: #E67E22; }
+.token-percent { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; }
+.token-label { font-size: 14px; font-weight: 600; margin: 4px 0; }
+.token-detail { font-size: 12px; opacity: 0.5; }
+
+.fee-box {
+    background: rgba(245,166,35,0.06); border: 1px solid rgba(245,166,35,0.15);
+    border-radius: 16px; padding: 32px; text-align: center;
+}
+.fee-box h3 { font-size: 20px; margin-bottom: 20px; color: #F5A623; }
+.fee-grid { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+.fee-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.fee-type { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.fee-rate { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: #F5A623; }
+.fee-split { font-size: 13px; opacity: 0.5; }
+
+/* ===== NGO CARDS ===== */
+.ngo-card {
+    background: rgba(46,204,113,0.06); border: 1px solid rgba(46,204,113,0.15);
+    border-radius: 16px; padding: 32px;
+}
+.ngo-card h3 { color: #2ECC71; font-size: 20px; margin-bottom: 12px; }
+.ngo-card p { font-size: 15px; opacity: 0.7; }
+.donation-cta { text-align: center; margin-top: 40px; }
+.donation-cta p { opacity: 0.6; margin-bottom: 12px; }
+.wallet-address {
+    display: inline-block; background: rgba(255,255,255,0.06);
+    padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0.8;
+}
+
+/* ===== ROADMAP ===== */
+.roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+@media (max-width: 768px) { .roadmap { grid-template-columns: 1fr; } }
+.roadmap-item {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 28px; position: relative;
+}
+.roadmap-item.active { border-color: rgba(245,166,35,0.4); }
+.roadmap-quarter {
+    font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700;
+    color: #F5A623; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+}
+.roadmap-item h3 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.roadmap-item li { font-size: 14px; opacity: 0.7; padding: 4px 0; }
+
+/* ===== LINKS ===== */
+.link-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 600px; margin: 0 auto;
+}
+@media (max-width: 768px) { .link-grid { grid-template-columns: repeat(2, 1fr); } }
+.link-card {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 24px; transition: all 0.2s;
+}
+.link-card:hover { border-color: rgba(245,166,35,0.4); transform: translateY(-2px); }
+.link-icon { font-size: 28px; }
+.link-card span:last-child { font-size: 14px; font-weight: 600; }
+
+/* ===== FOOTER ===== */
+.footer { padding: 48px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-logo { font-size: 24px; font-weight: 900; color: #F5A623; margin-bottom: 8px; }
+.footer-tagline { font-size: 14px; opacity: 0.5; font-style: italic; margin-bottom: 20px; }
+.footer-disclaimer { font-size: 12px; opacity: 0.3; max-width: 500px; margin: 0 auto 12px; }
+.footer-copy { font-size: 12px; opacity: 0.3; }
