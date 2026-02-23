@@ -8,8 +8,7 @@ Every transaction automatically contributes to child protection organizations th
 
 ```
 assets/          — Logo & banner (final versions)
-docs/en/         — Whitepaper, branding, airdrop strategy, community docs
-scripts/         — Token deployment & test scripts (Node.js)
+docs/            — Whitepaper, branding, airdrop strategy
 website/         — Landing page (GitHub Pages)
 ROADMAP.md       — Project roadmap
 ```
@@ -17,7 +16,7 @@ ROADMAP.md       — Project roadmap
 ## Token Info
 
 - **Chain:** Solana (Token-2022)
-- **Transfer Fee:** 1.5% (capped at 100 tokens/tx)
+- **Transfer Fee:** 1.5% (max 100 tokens per transaction)
 - **Supply:** TBD at mainnet launch
 - **Launch:** April 2026 (Child Abuse Prevention Month)
 
@@ -36,14 +35,6 @@ ROADMAP.md       — Project roadmap
 
 - Website: [protect-official.github.io/protect-token](https://protect-official.github.io/protect-token/website/index.html)
 - Twitter: [@Protect_Proj](https://twitter.com/Protect_Proj)
-
-## Setup
-
-```bash
-cd scripts
-npm install
-# Scripts require a Solana wallet keypair
-```
 
 ## License
 
