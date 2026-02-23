@@ -1,20 +1,50 @@
-# 🚀 Solana Memecoin Project
+# $PROTECT
 
-**팀:** YK (기획/실행) + LOBBY (리서치/분석/개발지원)
-**체인:** Solana
-**시작일:** 2026-02-09
+**Charity memecoin for child protection** — built on Solana (Token-2022 with TransferFee).
 
-## 목표
-1. Solana DEX 트레이딩 숙달
-2. 밈코인 트렌드 분석
-3. 자체 밈코인 런칭
+Every transaction automatically contributes to child protection organizations through a 1.5% transfer fee (0.5% donation, 0.5% team, 0.5% LP).
 
-## 단계
-- **Phase 1:** 리서치 & 학습
-- **Phase 2:** 테스트넷 토큰 배포 연습
-- **Phase 3:** 메인넷 런칭
+## Structure
 
-## 문서 목록
-- `DEV-LOG.md` — 개발 로그
-- `SECURITY.md` — 보안 규칙
-- `STYLE-GUIDE.md` — 프로젝트 일관성 가이드
+```
+assets/          — Logo & banner (final versions)
+docs/en/         — Whitepaper, branding, airdrop strategy, community docs
+scripts/         — Token deployment & test scripts (Node.js)
+website/         — Landing page (GitHub Pages)
+ROADMAP.md       — Project roadmap
+```
+
+## Token Info
+
+- **Chain:** Solana (Token-2022)
+- **Transfer Fee:** 1.5% (capped at 100 tokens/tx)
+- **Supply:** TBD at mainnet launch
+- **Launch:** April 2026 (Child Abuse Prevention Month)
+
+## Tokenomics
+
+| Allocation | % |
+|-----------|---|
+| Liquidity Pool | 65% |
+| Team | 15% |
+| Reserve | 10% |
+| Marketing | 5% |
+| Donation | 3% |
+| Airdrop | 2% |
+
+## Links
+
+- Website: [protect-official.github.io/protect-token](https://protect-official.github.io/protect-token/website/index.html)
+- Twitter: [@Protect_Proj](https://twitter.com/Protect_Proj)
+
+## Setup
+
+```bash
+cd scripts
+npm install
+# Scripts require a Solana wallet keypair
+```
+
+## License
+
+MIT

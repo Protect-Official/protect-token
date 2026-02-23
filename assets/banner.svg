@@ -22,7 +22,7 @@
   <g transform="translate(300,250)">
     <path d="M0 -130 L110 -75 L110 15 C110 70 65 120 0 155 C-65 120 -110 70 -110 15 L-110 -75 Z" 
           fill="none" stroke="url(#gold)" stroke-width="4" stroke-linejoin="round"/>
-    <text x="0" y="30" text-anchor="middle" fill="url(#gold)" 
+    <text x="0" y="55" text-anchor="middle" fill="url(#gold)" 
           font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif" 
           font-size="150" font-weight="900">$</text>
   </g>

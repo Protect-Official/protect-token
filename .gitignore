@@ -1,21 +1,17 @@
-# 🔒 내부 문서 (공개 금지)
-internal/
+# Dependencies
+node_modules/
+package-lock.json
 
-# 🔒 절대 커밋하면 안 되는 것들
-devnet-wallet.json
+# Wallet keys (NEVER commit)
 *-wallet.json
 *.key
 *.pem
 .env
 .env.*
 
-# Node
-node_modules/
-package-lock.json
-
 # OS
 .DS_Store
 Thumbs.db
 
-# Token info (민감할 수 있음)
-token-info.json
+# Internal
+internal/
