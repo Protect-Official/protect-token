@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1500" height="500" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDCC4E"/>
+      <stop offset="100%" stop-color="#D4930D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="#0A1628"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="100" x2="1500" y2="100" stroke="#F5A623" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1500" y2="200" stroke="#F5A623" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1500" y2="300" stroke="#F5A623" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1500" y2="400" stroke="#F5A623" stroke-width="1"/>
+  </g>
+
+  <!-- Shield + $ (left side) -->
+  <g transform="translate(300,250)">
+    <path d="M0 -130 L110 -75 L110 15 C110 70 65 120 0 155 C-65 120 -110 70 -110 15 L-110 -75 Z" 
+          fill="none" stroke="url(#gold)" stroke-width="4" stroke-linejoin="round"/>
+    <text x="0" y="30" text-anchor="middle" fill="url(#gold)" 
+          font-family="'Helvetica Neue', 'Arial Black', Arial, sans-serif" 
+          font-size="150" font-weight="900">$</text>
+  </g>
+
+  <!-- Text (right side) -->
+  <text x="750" y="220" text-anchor="middle" fill="url(#gold)" 
+        font-family="'Helvetica Neue', Arial, sans-serif" 
+        font-size="80" font-weight="900" letter-spacing="8">$PROTECT</text>
+  
+  <!-- Tagline -->
+  <text x="750" y="290" text-anchor="middle" fill="#FFFFFF" opacity="0.5"
+        font-family="'Helvetica Neue', Arial, sans-serif" 
+        font-size="22" font-weight="400" letter-spacing="4">EVERY TRADE PROTECTS A CHILD</text>
+  
+  <!-- Divider -->
+  <line x1="620" y1="320" x2="880" y2="320" stroke="#F5A623" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Solana badge -->
+  <text x="750" y="355" text-anchor="middle" fill="#F5A623" opacity="0.4"
+        font-family="'Helvetica Neue', Arial, sans-serif" 
+        font-size="14" font-weight="600" letter-spacing="3">BUILT ON SOLANA</text>
+</svg>
