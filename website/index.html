@@ -66,6 +66,21 @@
             <a href="#links" class="btn btn-primary">Buy $PROTECT</a>
             <a href="#about" class="btn btn-outline">Learn More</a>
         </div>
+        <!-- Launch Countdown -->
+        <div class="countdown-box" id="countdown">
+            <p class="countdown-label">🚀 LAUNCH IN</p>
+            <div class="countdown-timer">
+                <div class="countdown-unit"><span id="cd-days">--</span><small>DAYS</small></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><span id="cd-hours">--</span><small>HOURS</small></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><span id="cd-mins">--</span><small>MINS</small></div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-unit"><span id="cd-secs">--</span><small>SECS</small></div>
+            </div>
+            <p class="countdown-note">April 2026 — Child Abuse Prevention Month</p>
+        </div>
+
         <div class="hero-stats">
             <div class="stat">
                 <span class="stat-value">$0</span>
@@ -299,6 +314,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 window.addEventListener('scroll', () => {
     document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 50);
 });
+
+// Launch countdown — April 1, 2026
+(function countdown() {
+    const launch = new Date('2026-04-01T12:00:00Z').getTime();
+    function tick() {
+        const diff = launch - Date.now();
+        if (diff <= 0) { document.getElementById('countdown').innerHTML = '<p class="countdown-label">🚀 WE ARE LIVE</p>'; return; }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+        document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+        document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+})();
 </script>
 
 </body>
