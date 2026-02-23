@@ -227,13 +227,20 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
             },
             body: JSON.stringify({ wallet, twitter })
         });
+        if (res.status === 409) {
+            btn.textContent = 'Already registered!';
+            btn.style.background = '#E74C3C';
+            setTimeout(() => { btn.textContent = 'Join Waitlist 🛡️'; btn.style.background = ''; btn.disabled = false; }, 3000);
+            return;
+        }
         if (!res.ok && res.status !== 201) throw new Error('Failed');
         document.getElementById('airdrop-form').style.display = 'none';
         document.getElementById('airdrop-ok').style.display = 'block';
         loadWaitlistCount();
     } catch(err) {
         btn.textContent = 'Error — try again';
-        btn.disabled = false;
+        btn.style.background = '#E74C3C';
+        setTimeout(() => { btn.textContent = 'Join Waitlist 🛡️'; btn.style.background = ''; btn.disabled = false; }, 3000);
     }
 });
 
