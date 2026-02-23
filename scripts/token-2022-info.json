@@ -1,0 +1,23 @@
+{
+  "network": "devnet",
+  "program": "Token-2022",
+  "token": "$PROTECT",
+  "mint": "CLnxadc1SoRXAARaRrhVxPZ8GHT9HRjJWhTtb48Aj92a",
+  "tokenAccount": "ArgcwSPhn4mGSP1P2tCfUsJ4YChzQ4Bk8y2qzsqysyUC",
+  "wallet": "93Q2Z1htchF6NTGg95R5Q7yCvvYQWguuFe6xs2567vb4",
+  "totalSupply": 1000000000,
+  "decimals": 9,
+  "transferFee": {
+    "basisPoints": 150,
+    "percentage": "1.5%",
+    "maxFeeTokens": 100,
+    "feeAuthority": "93Q2Z1htchF6NTGg95R5Q7yCvvYQWguuFe6xs2567vb4",
+    "withdrawAuthority": "93Q2Z1htchF6NTGg95R5Q7yCvvYQWguuFe6xs2567vb4"
+  },
+  "createdAt": "2026-02-23T04:50:16.546Z",
+  "txSignatures": {
+    "createMint": "5GafmaFpY8q5ZTzFdu6ppEdcH2iPoZhxpHP82QVpA3iyeFGUMJd1C4f4jE9EUdzoDxQiupmSt5QLN6cJCs5oYsDQ",
+    "createATA": "E1uZBa79pDskSTo9BKmcZw7TTPzNQw3tms9P4Jg5caoScdJfPpe6W7to7gTYVx37FqNVjg99nNKJh1RkQihGK8s",
+    "mintSupply": "2uM4PcE26H5aLFKaGbJhwGH97iD8zFhtNVpjdsrKCXWExDYUACJNW8FJ2nqrRz42ZTAuZa7QiNXPcabJP7HxgRtE"
+  }
+}
