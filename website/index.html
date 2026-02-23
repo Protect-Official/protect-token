@@ -48,6 +48,7 @@
             <a href="#tokenomics">Tokenomics</a>
             <a href="#donation">Donation</a>
             <a href="#roadmap">Roadmap</a>
+            <a href="#airdrop">Airdrop</a>
             <a href="#links" class="btn btn-sm">Join Us</a>
         </div>
         <button class="nav-toggle" aria-label="Menu">☰</button>
@@ -250,13 +251,55 @@
     </div>
 </section>
 
+<!-- Airdrop -->
+<section class="section section-airdrop" id="airdrop">
+    <div class="container center">
+        <h2 class="section-title">🎁 Early Supporter Airdrop</h2>
+        <p class="section-subtitle">50,000,000 $PROTECT (5% of supply) for early believers.</p>
+        <div class="airdrop-box">
+            <form id="airdrop-form" class="airdrop-form">
+                <div class="form-group">
+                    <label for="wallet-input">Solana Wallet Address</label>
+                    <input type="text" id="wallet-input" name="wallet" placeholder="Your SOL address..." required pattern="[1-9A-HJ-NP-Za-km-z]{32,44}">
+                </div>
+                <div class="form-group">
+                    <label for="twitter-input">Twitter/X Handle</label>
+                    <input type="text" id="twitter-input" name="twitter" placeholder="@yourhandle" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-input">Email (optional)</label>
+                    <input type="email" id="email-input" name="email" placeholder="you@example.com">
+                </div>
+                <div class="form-checklist">
+                    <h4>✅ Tasks to qualify:</h4>
+                    <label><input type="checkbox" name="task-follow" required> Follow <a href="https://twitter.com/Protect_Proj" target="_blank">@Protect_Proj</a> on X</label>
+                    <label><input type="checkbox" name="task-rt" required> Retweet the pinned tweet</label>
+                    <label><input type="checkbox" name="task-join"> Join our Telegram / Discord</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" id="airdrop-btn">Register for Airdrop 🛡️</button>
+                <p class="form-note">Registration opens soon. Submit now to join the waitlist!</p>
+            </form>
+            <div id="airdrop-success" class="airdrop-success" style="display:none;">
+                <div class="success-icon">🛡️</div>
+                <h3>You're on the list!</h3>
+                <p>We'll notify you when the airdrop is ready. Share with friends to earn bonus tokens!</p>
+            </div>
+        </div>
+        <div class="airdrop-stats">
+            <div class="stat"><span class="stat-value" id="waitlist-count">0</span><span class="stat-label">Waitlist</span></div>
+            <div class="stat"><span class="stat-value">50M</span><span class="stat-label">$PROTECT Pool</span></div>
+            <div class="stat"><span class="stat-value">Free</span><span class="stat-label">No Cost</span></div>
+        </div>
+    </div>
+</section>
+
 <!-- Links -->
 <section class="section" id="links">
     <div class="container center">
         <h2 class="section-title">Join the Mission</h2>
         <p class="section-subtitle">Every trade protects a child. Be part of it.</p>
         <div class="link-grid">
-            <a href="#" class="link-card">
+            <a href="https://twitter.com/Protect_Proj" target="_blank" class="link-card">
                 <span class="link-icon">🐦</span>
                 <span>Twitter / X</span>
             </a>
@@ -272,7 +315,7 @@
                 <span class="link-icon">🪙</span>
                 <span>Jupiter</span>
             </a>
-            <a href="#" class="link-card">
+            <a href="../docs/en/WHITEPAPER.md" target="_blank" class="link-card">
                 <span class="link-icon">📄</span>
                 <span>Whitepaper</span>
             </a>
@@ -309,6 +352,30 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         document.querySelector('.nav-links').classList.remove('open');
     });
 });
+
+// Airdrop form
+document.getElementById('airdrop-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const wallet = document.getElementById('wallet-input').value;
+    const twitter = document.getElementById('twitter-input').value;
+    const email = document.getElementById('email-input').value;
+    
+    // Save to localStorage (temporary until backend)
+    const entries = JSON.parse(localStorage.getItem('protect-waitlist') || '[]');
+    entries.push({ wallet, twitter, email, ts: Date.now() });
+    localStorage.setItem('protect-waitlist', JSON.stringify(entries));
+    
+    // Show success
+    document.getElementById('airdrop-form').style.display = 'none';
+    document.getElementById('airdrop-success').style.display = 'block';
+    
+    // Update counter
+    document.getElementById('waitlist-count').textContent = entries.length;
+});
+
+// Load waitlist count
+const wl = JSON.parse(localStorage.getItem('protect-waitlist') || '[]');
+document.getElementById('waitlist-count').textContent = wl.length;
 
 // Nav background on scroll
 window.addEventListener('scroll', () => {
