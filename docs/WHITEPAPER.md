@@ -187,11 +187,11 @@ This vision positions $PROTECT not just as a donation token, but as a catalyst f
 
 ## 9. Links
 
-- Website: [lobster-kun.github.io/protect-token](https://lobster-kun.github.io/protect-token/)
+- Website: [protect-official.github.io/protect-token](https://protect-official.github.io/protect-token/)
 - Twitter/X: [@Protect_Proj](https://twitter.com/Protect_Proj)
-- Telegram: *(coming soon)*
+- Telegram: [@ProtectToken](https://t.me/ProtectToken)
 - Discord: *(coming soon)*
-- GitHub: [lobster-kun/protect-token](https://github.com/lobster-kun/protect-token)
+- GitHub: [Protect-Official/protect-token](https://github.com/Protect-Official/protect-token)
 - Donation Wallet: *(published at launch)*
 
 ---
