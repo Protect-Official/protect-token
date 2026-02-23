@@ -29,7 +29,8 @@ code { font-family: 'JetBrains Mono', monospace; }
     max-width: 1100px; margin: 0 auto; padding: 0 24px;
     display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo { font-weight: 900; font-size: 20px; color: #F5A623; }
+.nav-logo { font-weight: 900; font-size: 20px; color: #F5A623; display: flex; align-items: center; gap: 8px; }
+.nav-logo-img { width: 28px; height: 28px; border-radius: 50%; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { font-size: 14px; font-weight: 500; opacity: 0.8; transition: opacity 0.2s; }
 .nav-links a:hover { opacity: 1; }
@@ -66,6 +67,7 @@ code { font-family: 'JetBrains Mono', monospace; }
     background: radial-gradient(ellipse at 50% 30%, rgba(245,166,35,0.08) 0%, transparent 60%),
                 radial-gradient(ellipse at 80% 80%, rgba(46,204,113,0.05) 0%, transparent 50%);
 }
+.hero-logo { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 24px; box-shadow: 0 0 40px rgba(245,166,35,0.2); }
 .hero-tag {
     font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px;
     color: #F5A623; margin-bottom: 20px;
@@ -111,7 +113,9 @@ code { font-family: 'JetBrains Mono', monospace; }
 .tokenomics-grid {
     display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 40px;
 }
-@media (max-width: 768px) { .tokenomics-grid { grid-template-columns: repeat(2, 1fr); } }
+.tokenomics-grid { grid-template-columns: repeat(6, 1fr); }
+@media (max-width: 900px) { .tokenomics-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .tokenomics-grid { grid-template-columns: repeat(2, 1fr); } }
 .token-item {
     background: rgba(255,255,255,0.04); border-radius: 12px; padding: 24px; text-align: center;
     border-left: 3px solid;
@@ -121,6 +125,7 @@ code { font-family: 'JetBrains Mono', monospace; }
 .token-airdrop { border-color: #3498DB; }
 .token-marketing { border-color: #9B59B6; }
 .token-team { border-color: #E67E22; }
+.token-reserve { border-color: #E74C3C; }
 .token-percent { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; }
 .token-label { font-size: 14px; font-weight: 600; margin: 4px 0; }
 .token-detail { font-size: 12px; opacity: 0.5; }
@@ -130,11 +135,15 @@ code { font-family: 'JetBrains Mono', monospace; }
     border-radius: 16px; padding: 32px; text-align: center;
 }
 .fee-box h3 { font-size: 20px; margin-bottom: 20px; color: #F5A623; }
-.fee-grid { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
-.fee-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.fee-type { font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-.fee-rate { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: #F5A623; }
-.fee-split { font-size: 13px; opacity: 0.5; }
+.fee-single { margin: 16px 0 24px; }
+.fee-rate-big { font-family: 'Space Grotesk', sans-serif; font-size: 48px; font-weight: 700; color: #F5A623; }
+.fee-desc { font-size: 16px; opacity: 0.6; margin-top: 4px; }
+.fee-breakdown { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.fee-split-item { display: flex; align-items: center; gap: 8px; }
+.fee-split-icon { font-size: 20px; }
+.fee-split-pct { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #2ECC71; }
+.fee-split-label { font-size: 14px; opacity: 0.7; }
+.fee-note { font-size: 13px; opacity: 0.4; font-style: italic; }
 
 /* ===== NGO CARDS ===== */
 .ngo-card {
@@ -145,10 +154,7 @@ code { font-family: 'JetBrains Mono', monospace; }
 .ngo-card p { font-size: 15px; opacity: 0.7; }
 .donation-cta { text-align: center; margin-top: 40px; }
 .donation-cta p { opacity: 0.6; margin-bottom: 12px; }
-.wallet-address {
-    display: inline-block; background: rgba(255,255,255,0.06);
-    padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0.8;
-}
+.donation-governance { font-size: 14px; opacity: 0.4; font-style: italic; margin-top: 8px; }
 
 /* ===== ROADMAP ===== */
 .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
