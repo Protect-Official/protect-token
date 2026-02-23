@@ -18,22 +18,62 @@
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">
+            <img src="https://raw.githubusercontent.com/Protect-Official/protect-token/main/assets/logo.png" alt="$PROTECT" class="nav-logo-img">
+            <span>$PROTECT</span>
+        </a>
+        <div class="nav-links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#airdrop" class="btn btn-sm btn-primary">Join Airdrop</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#airdrop">Join Airdrop</a>
+</div>
+
 <!-- Hero -->
-<section class="hero">
+<section class="hero" id="top">
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
     <div class="container">
-        <img src="https://raw.githubusercontent.com/Protect-Official/protect-token/main/assets/logo.png" alt="$PROTECT" class="hero-logo">
-        <h1 class="hero-title">$PROTECT</h1>
-        <p class="hero-tagline">Every trade protects a child.</p>
-        <p class="hero-desc">The Solana memecoin that turns trading volume into real donations for child protection. 1.5% fee on every transfer — enforced by the protocol, not promises.</p>
-        
-        <div class="hero-buttons">
-            <a href="https://twitter.com/Protect_Proj" target="_blank" class="btn btn-primary">Follow on X</a>
+        <div class="reveal">
+            <img src="https://raw.githubusercontent.com/Protect-Official/protect-token/main/assets/logo.png" alt="$PROTECT" class="hero-logo">
+        </div>
+        <div class="reveal reveal-d1">
+            <h1 class="hero-title">$PROTECT</h1>
+        </div>
+        <div class="reveal reveal-d2">
+            <p class="hero-tagline">Every trade protects a child.</p>
+        </div>
+        <div class="reveal reveal-d3">
+            <p class="hero-desc">The Solana memecoin that turns trading volume into real donations for child protection. 1.5% fee on every transfer — enforced by the protocol, not promises.</p>
+        </div>
+
+        <div class="reveal reveal-d3 hero-buttons">
+            <a href="https://twitter.com/Protect_Proj" target="_blank" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;vertical-align:middle"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Follow on X
+            </a>
             <a href="#how-it-works" class="btn btn-ghost">How It Works ↓</a>
         </div>
 
         <!-- Countdown -->
-        <div class="countdown" id="countdown">
+        <div class="reveal reveal-d4 countdown" id="countdown">
             <p class="countdown-label">LAUNCHING IN</p>
             <div class="countdown-timer">
                 <div class="cd-unit"><span id="cd-days">--</span><small>DAYS</small></div>
@@ -52,21 +92,24 @@
 <!-- How It Works -->
 <section class="section" id="how-it-works">
     <div class="container">
-        <h2>How It Works</h2>
+        <h2 class="reveal">How It Works</h2>
         <div class="steps">
-            <div class="step">
+            <div class="step reveal">
+                <div class="step-icon">💰</div>
                 <div class="step-num">01</div>
                 <h3>You Trade</h3>
                 <p>Buy or sell $PROTECT on any Solana DEX. Trade like any other token.</p>
             </div>
-            <div class="step-arrow">→</div>
-            <div class="step">
+            <div class="step-arrow reveal reveal-d1">→</div>
+            <div class="step reveal reveal-d1">
+                <div class="step-icon">⚙️</div>
                 <div class="step-num">02</div>
                 <h3>Fee Collected</h3>
                 <p>1.5% transfer fee is automatically collected by the protocol. No way to skip it.</p>
             </div>
-            <div class="step-arrow">→</div>
-            <div class="step">
+            <div class="step-arrow reveal reveal-d2">→</div>
+            <div class="step reveal reveal-d2">
+                <div class="step-icon">🛡️</div>
                 <div class="step-num">03</div>
                 <h3>Children Protected</h3>
                 <p>Fees split: 0.5% to NGOs, 0.5% to operations, 0.5% to liquidity. All on-chain.</p>
@@ -75,41 +118,135 @@
     </div>
 </section>
 
-<!-- Tokenomics -->
-<section class="section section-dark" id="tokenomics">
+<!-- Stats -->
+<section class="section section-dark">
     <div class="container">
-        <h2>Tokenomics</h2>
-        <div class="token-grid">
-            <div class="token-bar">
-                <div class="bar-fill bar-lp" style="width:65%"><span>65% LP</span></div>
-                <div class="bar-fill bar-team" style="width:15%"><span>15% Team</span></div>
-                <div class="bar-fill bar-reserve" style="width:10%"><span>10%</span></div>
-                <div class="bar-fill bar-market" style="width:5%"><span>5%</span></div>
-                <div class="bar-fill bar-donate" style="width:3%"><span>3%</span></div>
-                <div class="bar-fill bar-airdrop" style="width:2%"><span>2%</span></div>
+        <div class="stats-row reveal">
+            <div class="stat">
+                <div class="stat-value" data-count="1000000000">1B</div>
+                <div class="stat-label">Total Supply</div>
             </div>
-            <div class="token-legend">
-                <span class="legend-item"><i class="dot dot-lp"></i>Liquidity Pool (burned 🔥)</span>
-                <span class="legend-item"><i class="dot dot-team"></i>Team (locked)</span>
-                <span class="legend-item"><i class="dot dot-reserve"></i>Reserve</span>
-                <span class="legend-item"><i class="dot dot-market"></i>Marketing</span>
-                <span class="legend-item"><i class="dot dot-donate"></i>Donation</span>
-                <span class="legend-item"><i class="dot dot-airdrop"></i>Airdrop</span>
+            <div class="stat">
+                <div class="stat-value">1.5%</div>
+                <div class="stat-label">Transfer Fee</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">On-Chain</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">NGO Partners</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tokenomics -->
+<section class="section" id="tokenomics">
+    <div class="container">
+        <h2 class="reveal">Tokenomics</h2>
+
+        <div class="tokenomics-layout reveal">
+            <!-- Donut Chart -->
+            <div class="donut-wrap">
+                <svg viewBox="0 0 200 200" class="donut-chart">
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="32"/>
+                    <!-- LP 65% = 326.7° → stroke-dasharray: 326.7, 175.9 offset: 0 -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#F5A623" stroke-width="32"
+                        stroke-dasharray="326.7 175.9" stroke-dashoffset="125.7"
+                        class="donut-seg" style="--delay:0s"/>
+                    <!-- Team 15% = 75.4° offset: -326.7 -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#E67E22" stroke-width="32"
+                        stroke-dasharray="75.4 427.3" stroke-dashoffset="-201"
+                        class="donut-seg" style="--delay:0.1s"/>
+                    <!-- Reserve 10% = 50.3° -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#E74C3C" stroke-width="32"
+                        stroke-dasharray="50.3 452.4" stroke-dashoffset="-276.4"
+                        class="donut-seg" style="--delay:0.2s"/>
+                    <!-- Marketing 5% = 25.1° -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#9B59B6" stroke-width="32"
+                        stroke-dasharray="25.1 477.5" stroke-dashoffset="-326.7"
+                        class="donut-seg" style="--delay:0.3s"/>
+                    <!-- Donation 3% = 15.1° -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#2ECC71" stroke-width="32"
+                        stroke-dasharray="15.1 487.6" stroke-dashoffset="-351.8"
+                        class="donut-seg" style="--delay:0.4s"/>
+                    <!-- Airdrop 2% = 10.1° -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#3498DB" stroke-width="32"
+                        stroke-dasharray="10.1 492.6" stroke-dashoffset="-366.9"
+                        class="donut-seg" style="--delay:0.5s"/>
+                    <!-- Center text -->
+                    <text x="100" y="95" text-anchor="middle" fill="#F5A623" font-size="24" font-weight="700" font-family="Space Grotesk">1B</text>
+                    <text x="100" y="115" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10" font-family="Inter">TOTAL SUPPLY</text>
+                </svg>
+            </div>
+
+            <!-- Legend -->
+            <div class="token-legend-v2">
+                <div class="legend-row">
+                    <i class="dot dot-lp"></i>
+                    <span class="legend-name">Liquidity Pool</span>
+                    <span class="legend-pct">65%</span>
+                    <span class="legend-tag">🔥 Burned</span>
+                </div>
+                <div class="legend-row">
+                    <i class="dot dot-team"></i>
+                    <span class="legend-name">Team</span>
+                    <span class="legend-pct">15%</span>
+                    <span class="legend-tag">🔒 Locked</span>
+                </div>
+                <div class="legend-row">
+                    <i class="dot dot-reserve"></i>
+                    <span class="legend-name">Reserve</span>
+                    <span class="legend-pct">10%</span>
+                    <span class="legend-tag"></span>
+                </div>
+                <div class="legend-row">
+                    <i class="dot dot-market"></i>
+                    <span class="legend-name">Marketing</span>
+                    <span class="legend-pct">5%</span>
+                    <span class="legend-tag"></span>
+                </div>
+                <div class="legend-row">
+                    <i class="dot dot-donate"></i>
+                    <span class="legend-name">Donation</span>
+                    <span class="legend-pct">3%</span>
+                    <span class="legend-tag">💚 NGOs</span>
+                </div>
+                <div class="legend-row">
+                    <i class="dot dot-airdrop"></i>
+                    <span class="legend-name">Airdrop</span>
+                    <span class="legend-pct">2%</span>
+                    <span class="legend-tag">🎁 Community</span>
+                </div>
             </div>
         </div>
 
-        <div class="fee-card">
+        <div class="fee-card reveal">
             <div class="fee-big">1.5%</div>
             <p>transfer fee on every transaction</p>
             <div class="fee-splits">
-                <span>💚 0.5% NGO</span>
-                <span>👥 0.5% Team</span>
-                <span>💧 0.5% LP</span>
+                <div class="fee-split-item">
+                    <span class="fee-split-icon">💚</span>
+                    <span class="fee-split-pct">0.5%</span>
+                    <span class="fee-split-label">NGO Donations</span>
+                </div>
+                <div class="fee-split-item">
+                    <span class="fee-split-icon">👥</span>
+                    <span class="fee-split-pct">0.5%</span>
+                    <span class="fee-split-label">Team Operations</span>
+                </div>
+                <div class="fee-split-item">
+                    <span class="fee-split-icon">💧</span>
+                    <span class="fee-split-pct">0.5%</span>
+                    <span class="fee-split-label">LP Reinvestment</span>
+                </div>
             </div>
-            <small>Solana Token-2022 TransferFee — protocol-level enforcement</small>
+            <small>Solana Token-2022 TransferFee — protocol-level enforcement, not a promise</small>
         </div>
 
-        <div class="trust-badges">
+        <div class="trust-badges reveal">
             <div class="badge">🔥 LP Burned</div>
             <div class="badge">🔒 Team Locked</div>
             <div class="badge">📜 Authority Renounced</div>
@@ -118,41 +255,92 @@
     </div>
 </section>
 
+<!-- Donation Partners -->
+<section class="section section-dark" id="partners">
+    <div class="container">
+        <h2 class="reveal">Where Donations Go</h2>
+        <p class="section-sub reveal">Vetted NGOs fighting child exploitation worldwide</p>
+        <div class="partners-grid">
+            <div class="partner-card reveal">
+                <div class="partner-icon">🔬</div>
+                <h3>Thorn</h3>
+                <p>Building technology to defend children from sexual abuse. Founded by Ashton Kutcher & Demi Moore.</p>
+                <a href="https://thorn.org" target="_blank" class="partner-link">thorn.org →</a>
+            </div>
+            <div class="partner-card reveal reveal-d1">
+                <div class="partner-icon">🏛️</div>
+                <h3>NCMEC</h3>
+                <p>National Center for Missing & Exploited Children. The leading US clearinghouse for child protection.</p>
+                <a href="https://missingkids.org" target="_blank" class="partner-link">missingkids.org →</a>
+            </div>
+            <div class="partner-card reveal reveal-d2">
+                <div class="partner-icon">📞</div>
+                <h3>Polaris Project</h3>
+                <p>Operating the US National Human Trafficking Hotline. Data-driven fight against trafficking.</p>
+                <a href="https://polarisproject.org" target="_blank" class="partner-link">polarisproject.org →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Roadmap -->
 <section class="section" id="roadmap">
     <div class="container">
-        <h2>Roadmap</h2>
-        <div class="phases">
-            <div class="phase phase-active">
-                <div class="phase-tag">NOW</div>
-                <h3>Phase 1: Build</h3>
-                <ul>
-                    <li>✅ Token-2022 tested on devnet</li>
-                    <li>✅ Website & whitepaper</li>
-                    <li>✅ Twitter launch</li>
-                    <li>⬜ Community channels</li>
-                    <li>⬜ Airdrop campaign</li>
-                </ul>
+        <h2 class="reveal">Roadmap</h2>
+        <div class="timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-item reveal">
+                <div class="timeline-dot active"></div>
+                <div class="phase phase-active">
+                    <div class="phase-tag">NOW</div>
+                    <h3>Phase 1: Build</h3>
+                    <ul>
+                        <li class="done">Token-2022 tested on devnet</li>
+                        <li class="done">Website & whitepaper</li>
+                        <li class="done">Twitter launch</li>
+                        <li>Community channels</li>
+                        <li>Airdrop campaign</li>
+                    </ul>
+                </div>
             </div>
-            <div class="phase">
-                <div class="phase-tag">APR 2026</div>
-                <h3>Phase 2: Launch</h3>
-                <ul>
-                    <li>Mainnet deployment</li>
-                    <li>DEX listing</li>
-                    <li>First NGO donation</li>
-                    <li>Airdrop distribution</li>
-                </ul>
+            <div class="timeline-item reveal reveal-d1">
+                <div class="timeline-dot"></div>
+                <div class="phase">
+                    <div class="phase-tag">APR 2026</div>
+                    <h3>Phase 2: Launch</h3>
+                    <ul>
+                        <li>Mainnet deployment</li>
+                        <li>DEX listing</li>
+                        <li>First NGO donation</li>
+                        <li>Airdrop distribution</li>
+                    </ul>
+                </div>
             </div>
-            <div class="phase">
-                <div class="phase-tag">Q3 2026</div>
-                <h3>Phase 3: Grow</h3>
-                <ul>
-                    <li>Exchange listings</li>
-                    <li>NGO partnerships</li>
-                    <li>Community governance</li>
-                    <li>Donation dashboard</li>
-                </ul>
+            <div class="timeline-item reveal reveal-d2">
+                <div class="timeline-dot"></div>
+                <div class="phase">
+                    <div class="phase-tag">Q3 2026</div>
+                    <h3>Phase 3: Grow</h3>
+                    <ul>
+                        <li>Exchange listings</li>
+                        <li>NGO partnerships</li>
+                        <li>Community governance</li>
+                        <li>Donation dashboard</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item reveal reveal-d3">
+                <div class="timeline-dot"></div>
+                <div class="phase">
+                    <div class="phase-tag">2027+</div>
+                    <h3>Phase 4: Scale</h3>
+                    <ul>
+                        <li>Cross-chain expansion</li>
+                        <li>Global NGO network</li>
+                        <li>DAO governance</li>
+                        <li>Impact reporting</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -161,10 +349,10 @@
 <!-- Airdrop -->
 <section class="section section-dark" id="airdrop">
     <div class="container center">
-        <h2>🎁 Airdrop</h2>
-        <p class="airdrop-desc">2% of total supply for early supporters. Follow, retweet, join — and you're in.</p>
-        <p class="wl-counter"><span id="wl-count">0</span> on the waitlist</p>
-        <div class="airdrop-box">
+        <h2 class="reveal">🎁 Airdrop</h2>
+        <p class="airdrop-desc reveal">2% of total supply for early supporters. Follow, retweet, join — and you're in.</p>
+        <p class="wl-counter reveal"><span id="wl-count">0</span> on the waitlist</p>
+        <div class="airdrop-box reveal">
             <form id="airdrop-form">
                 <input type="text" id="wallet-input" placeholder="Your Solana wallet address" required pattern="[1-9A-HJ-NP-Za-km-z]{32,44}">
                 <input type="text" id="twitter-input" placeholder="@your_twitter" required>
@@ -183,11 +371,15 @@
     </div>
 </section>
 
-<!-- Links / Footer -->
+<!-- Footer -->
 <footer class="footer" id="links">
     <div class="container center">
         <div class="social-links">
-            <a href="https://twitter.com/Protect_Proj" target="_blank">𝕏 Twitter</a>
+            <a href="https://twitter.com/Protect_Proj" target="_blank">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;vertical-align:middle"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Twitter
+            </a>
+            <a href="https://t.me/ProtectToken" target="_blank">✈️ Telegram</a>
             <a href="https://github.com/Protect-Official/protect-token/blob/main/docs/WHITEPAPER.md" target="_blank">📄 Whitepaper</a>
             <a href="https://github.com/Protect-Official/protect-token" target="_blank">📂 GitHub</a>
         </div>
@@ -197,19 +389,95 @@
 </footer>
 
 <script>
+// Navbar scroll
+const nav = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+    nav.classList.toggle('nav-hide', window.scrollY > lastY && window.scrollY > 300);
+    lastY = window.scrollY;
+});
+
+// Mobile menu
+const toggle = document.getElementById('nav-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    mobileMenu.classList.remove('open');
+}));
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+        const el = document.querySelector(a.getAttribute('href'));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
     });
 });
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }});
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObs.observe(el));
+
+// Hero canvas — floating shields
+(function() {
+    const c = document.getElementById('hero-canvas');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    let w, h, particles = [];
+    function resize() { w = c.width = c.offsetWidth; h = c.height = c.offsetHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+    for (let i = 0; i < 30; i++) {
+        particles.push({
+            x: Math.random() * w, y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+            size: Math.random() * 3 + 1, alpha: Math.random() * 0.15 + 0.03
+        });
+    }
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(245,166,35,${p.alpha})`;
+            ctx.fill();
+        });
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(245,166,35,${0.04 * (1 - dist / 150)})`;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
 
 // Supabase config
 const SUPABASE_URL = 'https://bxhxptfjnemxbnhuasuo.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4aHhwdGZqbmVteGJuaHVhc3VvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4MjQzNzUsImV4cCI6MjA4NzQwMDM3NX0.4-eJR2UOg2JNdN4c9tvlYizUQf47tbBaGDeQ0a6kMmI';
 
-// Airdrop
+// Airdrop form
 document.getElementById('airdrop-form').addEventListener('submit', async e => {
     e.preventDefault();
     const btn = document.querySelector('#airdrop-form button');
@@ -244,7 +512,7 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
     }
 });
 
-// Load waitlist count (secure — uses DB function, no data exposure)
+// Load waitlist count
 async function loadWaitlistCount() {
     try {
         const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/waitlist_count', {
