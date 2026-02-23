@@ -1,216 +1,216 @@
-# 솔라나 기부형/자선 토큰 프로젝트 토크노믹스 리서치
+# Solana Charity/Donation Token Tokenomics Research
 
-## 목차
-1. [기부/자선 관련 크립토 프로젝트 분석](#기부자선-관련-크립토-프로젝트-분석)
-2. [성공한 밈코인들의 토크노믹스](#성공한-밈코인들의-토크노믹스)
-3. [비교 분석](#비교-분석)
-4. [결론 및 권장사항](#결론-및-권장사항)
+## Table of Contents
+1. [Charity/Donation Crypto Project Analysis](#charitdonation-crypto-project-analysis)
+2. [Successful Memecoin Tokenomics](#successful-memecoin-tokenomics)
+3. [Comparative Analysis](#comparative-analysis)
+4. [Conclusions & Recommendations](#conclusions--recommendations)
 
 ---
 
-## 기부/자선 관련 크립토 프로젝트 분석
+## Charity/Donation Crypto Project Analysis
 
-### 1. 주요 기부/자선 크립토 프로젝트들
+### 1. Major Charity Crypto Projects
 
-#### 1.1 Give Coin (EVM 기반)
-- **토큰 배분 비율**:
-  - 팀: 15-20%
-  - LP/유동성: 30%
-  - 기부 펀드: 40-50%
-  - 에어드롭/마케팅: 10-15%
+#### 1.1 Give Coin (EVM-based)
+- **Token Allocation**:
+  - Team: 15-20%
+  - LP/Liquidity: 30%
+  - Donation Fund: 40-50%
+  - Airdrop/Marketing: 10-15%
 
-- **수수료 구조**:
+- **Fee Structure**:
   - Buy Tax: 5-8%
   - Sell Tax: 8-12%
-  - 수수료 사용처: 50% 기부, 30% LP, 20% 운영
+  - Fee Usage: 50% donation, 30% LP, 20% operations
 
-#### 1.2 CharityCoin (다양한 체인 지원)
-- **토큰 배분 비율**:
-  - 팀: 10%
+#### 1.2 CharityCoin (Multi-chain)
+- **Token Allocation**:
+  - Team: 10%
   - LP: 40%
-  - 자선 펀드: 45%
-  - 마케팅: 5%
+  - Charity Fund: 45%
+  - Marketing: 5%
 
-- **수수료 구조**:
-  - Buy/Sell Tax: 각각 6%
-  - 3% → 자선 기부
-  - 2% → LP 추가
-  - 1% → 운영/마케팅
+- **Fee Structure**:
+  - Buy/Sell Tax: 6% each
+  - 3% → Charity donations
+  - 2% → LP addition
+  - 1% → Operations/marketing
 
 #### 1.3 Save The Children Token (BSC)
-- **토큰 배분 비율**:
-  - 팀: 12%
-  - 사전 판매: 35%
-  - 유동성: 25%
-  - 자선 기금: 25%
-  - 마케팅: 3%
+- **Token Allocation**:
+  - Team: 12%
+  - Presale: 35%
+  - Liquidity: 25%
+  - Charity Fund: 25%
+  - Marketing: 3%
 
-- **팀 수익 구조**:
-  - 초기 팀 할당: 베스팅 12개월
-  - 거래 수수료의 일부로 지속적인 수익
-  - 기부 인증을 통한 신뢰도 구축
+- **Team Revenue Structure**:
+  - Initial team allocation: 12-month vesting
+  - Ongoing revenue from transaction fees
+  - Trust-building through verified donations
 
 ---
 
-## 성공한 밈코인들의 토크노믹스
+## Successful Memecoin Tokenomics
 
 ### 2.1 BONK (Solana)
-- **배분 비율**:
-  - 솔라나 커뮤니티 에어드롭: 50%
-  - 팀: 15%
+- **Allocation**:
+  - Solana community airdrop: 50%
+  - Team: 15%
   - LP: 20%
-  - 마케팅/파트너십: 15%
+  - Marketing/partnerships: 15%
 
-- **수수료**: 없음 (No Tax)
-- **런칭 전략**: 
-  - 대규모 커뮤니티 에어드롭
-  - 솔라나 생태계 부활 스토리텔링
-  - DEX 유동성 집중 공급
+- **Fees**: None (No Tax)
+- **Launch Strategy**:
+  - Massive community airdrop
+  - Solana ecosystem revival storytelling
+  - Concentrated DEX liquidity
 
-### 2.2 dogwifhat (WIF) - Solana
-- **배분 비율**:
-  - 공급량: 998.84M WIF
-  - 팀 할당: 최소 (정확한 비율 미공개)
-  - 거의 대부분이 유동성 풀에 배치
+### 2.2 dogwifhat (WIF) — Solana
+- **Allocation**:
+  - Supply: 998.84M WIF
+  - Team allocation: Minimal (exact % undisclosed)
+  - Majority placed in liquidity pool
 
-- **수수료**: 없음
-- **런칭 전략**:
-  - 단순한 밈 컨셉 ("dog with hat")
-  - 강력한 커뮤니티 중심
-  - 소셜 미디어 바이럴 마케팅
+- **Fees**: None
+- **Launch Strategy**:
+  - Simple meme concept ("dog with hat")
+  - Strong community focus
+  - Social media viral marketing
 
 ### 2.3 PEPE (Ethereum)
-- **배분 비율**:
-  - 유동성 풀: 93.1%
-  - 팀: 6.9% (멀티시그 지갑)
-  - CEX 리스팅용: 별도 준비
+- **Allocation**:
+  - Liquidity Pool: 93.1%
+  - Team: 6.9% (multisig wallet)
+  - CEX listing: Separate allocation
 
-- **수수료**: 없음 ("no-tax policy")
-- **런칭 전략**:
-  - 인터넷 밈 기반 스토리텔링
-  - 완전 커뮤니티 중심
-  - "순수 밈코인"으로 포지셔닝
+- **Fees**: None ("no-tax policy")
+- **Launch Strategy**:
+  - Internet meme-based storytelling
+  - Fully community-driven
+  - Positioned as "pure memecoin"
 
-### 2.4 추가 밈코인 분석 (DexScreener 기반)
+### 2.4 Additional Memecoin Analysis (DexScreener data)
 
 #### 2.4.1 pippin (SOL)
-- 시가총액: $673.9M
-- 24h 거래량: $20.5M
-- 1년 성장률: 2,335%
+- Market Cap: $673.9M
+- 24h Volume: $20.5M
+- 1-year Growth: 2,335%
 
 #### 2.4.2 Fartcoin (SOL)
-- 시가총액: $158.8M
-- 24h 거래량: $586K
-- 1년 성장률: 상당한 성장
+- Market Cap: $158.8M
+- 24h Volume: $586K
+- 1-year Growth: Significant
 
 ---
 
-## 비교 분석
+## Comparative Analysis
 
-### 3.1 기부 프로젝트 vs 일반 밈코인 차이점
+### 3.1 Charity Projects vs Regular Memecoins
 
-| 항목 | 기부/자선 토큰 | 일반 밈코인 |
-|------|---------------|-------------|
-| **팀 물량 평균** | 10-20% | 5-15% |
-| **수수료 평균** | 6-12% | 0% (대부분) |
-| **LP 비율 평균** | 25-40% | 50-93% |
-| **기부 펀드** | 25-50% | 0% |
-| **마케팅 비율** | 3-15% | 5-15% |
+| Category | Charity/Donation Tokens | Regular Memecoins |
+|----------|------------------------|-------------------|
+| **Avg Team Allocation** | 10-20% | 5-15% |
+| **Avg Fees** | 6-12% | 0% (mostly) |
+| **Avg LP Ratio** | 25-40% | 50-93% |
+| **Donation Fund** | 25-50% | 0% |
+| **Marketing Ratio** | 3-15% | 5-15% |
 
-### 3.2 수수료 구조 분석
+### 3.2 Fee Structure Analysis
 
-#### 기부/자선 토큰:
-- **Buy Tax**: 평균 5-8%
-- **Sell Tax**: 평균 8-12%
-- 높은 세율의 이유: 기부 펀드 조성 필요
+#### Charity/Donation Tokens:
+- **Buy Tax**: Average 5-8%
+- **Sell Tax**: Average 8-12%
+- High tax justified by: Donation fund accumulation
 
-#### 성공한 밈코인:
-- **Tax**: 대부분 0%
-- 이유: 거래 활성화 및 접근성 증대
+#### Successful Memecoins:
+- **Tax**: Mostly 0%
+- Reason: Maximize trading activity and accessibility
 
-### 3.3 성공 요인 분석
+### 3.3 Success Factor Analysis
 
-#### 기부/자선 토큰의 성공 요인:
-1. **투명한 기부 내역 공개**
-2. **정기적인 기부 활동 증명**
-3. **커뮤니티 참여형 기부 선택**
-4. **유명 자선단체와의 파트너십**
+#### Charity Token Success Factors:
+1. **Transparent donation records**
+2. **Regular proof of donation activity**
+3. **Community-driven donation selection**
+4. **Partnerships with established NGOs**
 
-#### 밈코인의 성공 요인:
-1. **강력한 커뮤니티**
-2. **바이럴 마케팅**
-3. **낮은 진입 장벽 (무수수료)**
-4. **스토리텔링**
+#### Memecoin Success Factors:
+1. **Strong community**
+2. **Viral marketing**
+3. **Low barrier to entry (no fees)**
+4. **Compelling storytelling**
 
 ---
 
-## 결론 및 권장사항
+## Conclusions & Recommendations
 
-### 4.1 기부 토큰 프로젝트를 위한 권장 토크노믹스
+### 4.1 Recommended Tokenomics for Charity Token Projects
 
-#### 권장 배분 비율:
-- **팀**: 12-15% (18개월 베스팅)
-- **사전 판매**: 25-30%
-- **유동성 풀**: 35-40%
-- **기부 펀드**: 30-35%
-- **마케팅/에어드롭**: 8-12%
+#### Recommended Allocation:
+- **Team**: 12-15% (18-month vesting)
+- **Presale**: 25-30%
+- **Liquidity Pool**: 35-40%
+- **Donation Fund**: 30-35%
+- **Marketing/Airdrop**: 8-12%
 
-#### 권장 수수료 구조:
+#### Recommended Fee Structure:
 - **Buy Tax**: 4-6%
-  - 기부: 2-3%
+  - Donation: 2-3%
   - LP: 1-2%
-  - 운영: 1%
+  - Operations: 1%
 
 - **Sell Tax**: 6-8%
-  - 기부: 3-4%
+  - Donation: 3-4%
   - LP: 2%
-  - 운영: 1-2%
+  - Operations: 1-2%
 
-### 4.2 핵심 성공 전략
+### 4.2 Key Success Strategies
 
-1. **투명성 확보**:
-   - 모든 기부 내역 온체인 기록
-   - 정기적인 기부 증명 제출
-   - 기부 대상 단체와의 공식 파트너십
+1. **Ensure Transparency**:
+   - Record all donations on-chain
+   - Submit regular proof of donations
+   - Official partnerships with donation recipients
 
-2. **커뮤니티 중심**:
-   - 기부 대상을 커뮤니티 투표로 결정
-   - 정기적인 AMA 및 투명한 소통
-   - 기부 활동 참여형 이벤트
+2. **Community-Centric**:
+   - Community votes on donation recipients
+   - Regular AMAs and transparent communication
+   - Participatory donation events
 
-3. **기술적 혁신**:
-   - 자동 기부 시스템 구축
-   - 기부 추적 대시보드 제공
-   - NFT 기부 증명서 발행
+3. **Technical Innovation**:
+   - Automated donation system
+   - Donation tracking dashboard
+   - NFT donation certificates
 
-4. **마케팅 전략**:
-   - 실제 기부 활동 스토리텔링
-   - 소셜 임팩트 중심의 브랜딩
-   - 인플루언서와의 기부 캠페인 협업
+4. **Marketing Strategy**:
+   - Storytelling around real donation activity
+   - Social impact-focused branding
+   - Influencer donation campaign collaborations
 
-### 4.3 리스크 요소
+### 4.3 Risk Factors
 
-1. **규제 리스크**: 기부 관련 규제 준수 필요
-2. **투명성 요구**: 지속적인 기부 증명 부담
-3. **수수료 부담**: 거래 활성도에 영향 가능
-4. **기부 단체 의존성**: 파트너십 유지의 중요성
+1. **Regulatory risk**: Must comply with donation-related regulations
+2. **Transparency demands**: Ongoing burden of proving donations
+3. **Fee burden**: May impact trading activity
+4. **NGO dependency**: Maintaining partnerships is critical
 
-### 4.4 시장 기회
+### 4.4 Market Opportunities
 
-- **ESG 투자 트렌드**: 사회적 책임 투자 증가
-- **크립토 주류화**: 기관 투자자들의 관심 증대
-- **투명성 요구**: 블록체인의 투명성이 경쟁 우위
-- **커뮤니티 중심**: Web3 문화와 일치하는 가치관
-
----
-
-## 부록: 주요 데이터 소스
-
-1. CoinMarketCap - 토큰 기본 정보
-2. DexScreener - 거래 데이터 및 트렌딩
-3. 각 프로젝트 공식 문서 및 백서
-4. 커뮤니티 디스코드/텔레그램 정보
+- **ESG investing trend**: Growing socially responsible investment
+- **Crypto mainstream adoption**: Increasing institutional interest
+- **Transparency demand**: Blockchain transparency as competitive advantage
+- **Community focus**: Values aligned with Web3 culture
 
 ---
 
-*본 리서치는 2026년 2월 23일 기준으로 작성되었으며, 크립토 시장의 변동성을 고려하여 정기적인 업데이트가 필요합니다.*
+## Appendix: Key Data Sources
+
+1. CoinMarketCap — Token fundamentals
+2. DexScreener — Trading data & trending
+3. Official docs and whitepapers for each project
+4. Community Discord/Telegram information
+
+---
+
+*This research was compiled as of February 23, 2026. Regular updates are recommended given crypto market volatility.*

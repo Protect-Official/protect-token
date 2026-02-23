@@ -1,80 +1,80 @@
-# $PROTECT 로드맵 — 4월 런칭 목표
+# $PROTECT Roadmap — April Launch Target
 
-*Updated: 2026-02-22*
-
----
-
-## 📍 현재 상태 (2월 말)
-- ✅ 백서 (EN/KO)
-- ✅ 토크노믹스 설계
-- ✅ 에어드롭 전략
-- ✅ 브랜딩 가이드
-- ✅ 랜딩 페이지 (기본)
-- ✅ Devnet 지갑 생성 스크립트
-- ✅ 기본 토큰 생성 스크립트 (spl-token, TransferFee 미적용)
-- ❌ Token-2022 TransferFee 구현
-- ❌ 로고/비주얼 에셋
-- ❌ 소셜 채널 (텔레그램, 디스코드 커뮤니티)
-- ❌ 에어드롭 폼/봇
-- ❌ 웹사이트 배포
-- ❌ 메인넷 배포
+*Updated: 2026-02-23*
 
 ---
 
-## Phase 1: 기반 완성 (2/22 ~ 3/8) 🔧
-> **핵심: 토큰이 실제로 동작하게 만들기**
+## 📍 Current Status (Late February)
+- ✅ Whitepaper
+- ✅ Tokenomics design
+- ✅ Airdrop strategy
+- ✅ Branding guide
+- ✅ Landing page (basic)
+- ✅ Devnet wallet creation script
+- ✅ Token-2022 TransferFee implementation & testing
+- ✅ Logo & visual assets
+- ✅ Website deployed (GitHub Pages)
+- ✅ Twitter profile kit
+- ❌ Social channels (Telegram, Discord community)
+- ❌ Airdrop form/bot
+- ❌ Mainnet deployment
+
+---
+
+## Phase 1: Foundation (2/22 ~ 3/8) 🔧
+> **Core: Make the token actually work**
 
 ### Week 1 (2/22~2/28)
-- [ ] **Token-2022 + TransferFee 스크립트 재작성** ⬅️ 최우선
-  - 1.5% 수수료, 기부 지갑으로 수집
-  - Devnet 배포 & 테스트
-- [ ] 로고 디자인 (AI 생성 → 후보 3개 → YK 선택)
-- [ ] README 업데이트
+- [x] **Token-2022 + TransferFee scripts** ← Top priority
+  - 1.5% fee, collected to donation wallet
+  - Devnet deploy & test (6 scenarios all passed)
+- [x] Logo design (AI-generated → 7 candidates → YK selected A7)
+- [x] README update
 
 ### Week 2 (3/1~3/8)
-- [ ] Devnet 전체 플로우 테스트 (민트→전송→수수료확인→수집)
-- [ ] 웹사이트 업그레이드 (로고, 토크노믹스 시각화, 카운트다운)
-- [ ] 텔레그램 그룹 생성 & 봇 설정
-- [ ] 디스코드 커뮤니티 서버 생성
+- [x] Devnet full flow test (mint → transfer → fee check → harvest)
+- [ ] Website upgrade (logo, tokenomics visualization, countdown)
+- [ ] Telegram group creation & bot setup
+- [ ] Discord community server creation
 
 ---
 
-## Phase 2: 마케팅 & 커뮤니티 (3/9 ~ 3/22) 📢
-> **핵심: 런칭 전 관심 모으기**
+## Phase 2: Marketing & Community (3/9 ~ 3/22) 📢
+> **Core: Build interest before launch**
 
-- [ ] 트위터 콘텐츠 캘린더 (주 5회 포스팅)
-- [ ] 에어드롭 등록 폼 오픈
-- [ ] 밈 콘테스트 기획
-- [ ] 크립토 커뮤니티 아웃리치 (Reddit, CT)
-- [ ] NGO 파트너십 초기 접촉 (Thorn, NCMEC)
-- [ ] 인플루언서 리스트업 & DM
-
----
-
-## Phase 3: 프리런칭 (3/23 ~ 4/5) 🚀
-> **핵심: 런칭 준비 완료**
-
-- [ ] 메인넷 토큰 배포
-- [ ] LP 풀 준비 (Raydium / Orca)
-- [ ] 보안 감사 (자체 + 커뮤니티 리뷰)
-- [ ] 민트/동결 권한 포기 (renounce)
-- [ ] LP 토큰 번 (영구 유동성)
-- [ ] 에어드롭 스냅샷 & 배포 준비
-- [ ] 런칭 타임라인 공개
+- [ ] Twitter content calendar (5 posts/week)
+- [ ] Airdrop registration form open
+- [ ] Meme contest planning
+- [ ] Crypto community outreach (Reddit, CT)
+- [ ] NGO partnership initial contact (Thorn, NCMEC)
+- [ ] Influencer list & DM
 
 ---
 
-## Phase 4: 런칭 🎯 (4월 첫째 주, 아동학대 예방의 달)
-- [ ] DEX 상장 (Raydium)
-- [ ] 에어드롭 배포
-- [ ] 첫 NGO 기부 실행 & 공개
-- [ ] PR / 프레스 릴리즈
-- [ ] CoinGecko / CMC 리스팅 신청
+## Phase 3: Pre-Launch (3/23 ~ 4/5) 🚀
+> **Core: Launch-ready**
+
+- [ ] Mainnet token deployment
+- [ ] LP pool preparation (Raydium / Orca)
+- [ ] Security audit (self + community review)
+- [ ] Renounce mint/freeze authority
+- [ ] Burn LP tokens (permanent liquidity)
+- [ ] Airdrop snapshot & distribution prep
+- [ ] Public launch timeline
 
 ---
 
-## 우선순위 원칙
-1. **토큰이 먼저** — 제품 없으면 마케팅 의미 없음
-2. **투명성이 생명** — 모든 지갑, 모든 거래 공개
-3. **Anti-rug 증명** — LP 번, 권한 포기, 팀 토큰 락
-4. **커뮤니티 > 가격** — 가격 펌핑 아닌 미션 중심
+## Phase 4: Launch 🎯 (First week of April — Child Abuse Prevention Month)
+- [ ] DEX listing (Raydium)
+- [ ] Airdrop distribution
+- [ ] First NGO donation & public disclosure
+- [ ] PR / Press release
+- [ ] CoinGecko / CMC listing application
+
+---
+
+## Guiding Principles
+1. **Token first** — No product, no point in marketing
+2. **Transparency is everything** — All wallets, all transactions public
+3. **Anti-rug proof** — LP burn, authority renounce, team token lock
+4. **Community > Price** — Mission-driven, not pump-driven

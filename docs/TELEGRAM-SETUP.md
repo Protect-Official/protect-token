@@ -1,18 +1,18 @@
 # $PROTECT Telegram Setup
 
-## 그룹 정보
-- **이름**: $PROTECT Official
-- **유저네임**: @ProtectToken
-- **타입**: Public Supergroup
-- **설명**: 🛡️ Every trade protects a child | Solana Token-2022 | 1.5% fee → child protection NGOs
+## Group Info
+- **Name**: $PROTECT Official
+- **Username**: @ProtectToken
+- **Type**: Public Supergroup
+- **Description**: 🛡️ Every trade protects a child | Solana Token-2022 | 1.5% fee → child protection NGOs
 
-## 봇 설정
+## Bot Setup
 ### Rose Bot (@MissRose_bot)
-- 안티스팸
-- 웰컴 메시지
-- 캡차 인증
+- Anti-spam
+- Welcome message
+- Captcha verification
 
-### 웰컴 메시지
+### Welcome Message
 ```
 🛡️ Welcome to $PROTECT, {first}!
 
@@ -20,7 +20,7 @@ Every trade on $PROTECT funds child protection.
 
 📌 Quick Links:
 • Website: protecttoken.org
-• Twitter: @Protect-Proj  
+• Twitter: @Protect_Proj  
 • Whitepaper: [link]
 
 ⚠️ Team will NEVER DM you first.
@@ -29,15 +29,15 @@ Every trade on $PROTECT funds child protection.
 Start by reading our /rules 👇
 ```
 
-## 핀 메시지
-1. 프로젝트 소개 + 링크 모음
-2. 토크노믹스 요약
-3. 에어드롭 참여 방법 (런칭 시)
+## Pinned Messages
+1. Project intro + link collection
+2. Tokenomics summary
+3. How to participate in the airdrop (at launch)
 
-## 규칙
+## Rules
 1. No spam or self-promotion
 2. No FUD without evidence
 3. Be respectful
-4. English only (Korean community separate)
+4. English only
 5. No price predictions or financial advice
 6. Report scammers immediately
