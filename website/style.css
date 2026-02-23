@@ -265,14 +265,7 @@ code { font-family: 'JetBrains Mono', monospace; }
     box-shadow: 0 0 60px rgba(245,166,35,0.06), 0 20px 40px rgba(0,0,0,0.3);
     position: relative;
 }
-.airdrop-box::before {
-    content: '🛡️';
-    position: absolute;
-    top: -18px; left: 50%; transform: translateX(-50%);
-    font-size: 2rem;
-    background: #0A1628;
-    padding: 0 1rem;
-}
+/* shield icon removed */
 .airdrop-form { display: flex; flex-direction: column; gap: 1.2rem; }
 .form-group { display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
 .form-group label {
