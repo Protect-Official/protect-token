@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Process — $PROTECT</title>
+    <meta name="description" content="How $PROTECT turns every trade into real donations for child protection NGOs. Full transparency, on-chain verification.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .doc-page { padding: 120px 0 80px; }
+        .doc-page h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: #F5A623; margin-bottom: 8px; }
+        .doc-page .subtitle { font-size: 18px; opacity: 0.5; margin-bottom: 48px; }
+        .doc-page h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; color: #F5A623; margin: 48px 0 20px; }
+        .doc-page h3 { font-size: 18px; margin: 32px 0 12px; }
+        .doc-page p { font-size: 15px; opacity: 0.7; margin-bottom: 16px; line-height: 1.8; }
+        .doc-page strong { color: #fff; opacity: 1; }
+
+        .flow-diagram {
+            background: rgba(245,166,35,0.04); border: 1px solid rgba(245,166,35,0.1);
+            border-radius: 20px; padding: 36px; margin: 24px 0; text-align: center;
+        }
+        .flow-step {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 20px; background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 12px;
+            font-size: 14px; font-weight: 500; margin: 6px;
+        }
+        .flow-arrow { font-size: 20px; opacity: 0.2; margin: 0 4px; }
+
+        .split-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+        .split-card {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px; padding: 24px; text-align: center;
+        }
+        .split-card .emoji { font-size: 28px; margin-bottom: 8px; }
+        .split-card .pct { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: #F5A623; }
+        .split-card .label { font-size: 13px; opacity: 0.5; margin-top: 4px; }
+
+        .ngo-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+        .ngo-card {
+            background: rgba(46,204,113,0.04); border: 1px solid rgba(46,204,113,0.1);
+            border-radius: 16px; padding: 24px; text-align: center;
+        }
+        .ngo-card h4 { color: #2ECC71; margin-bottom: 8px; }
+        .ngo-card p { font-size: 13px; opacity: 0.5; margin: 0; }
+        .ngo-card a { color: #F5A623; font-size: 13px; }
+
+        .timeline-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+        .timeline-table th { text-align: left; padding: 12px 16px; color: #F5A623; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .timeline-table td { padding: 12px 16px; font-size: 14px; opacity: 0.6; border-bottom: 1px solid rgba(255,255,255,0.03); }
+
+        .verify-box {
+            background: rgba(46,204,113,0.04); border: 1px solid rgba(46,204,113,0.12);
+            border-radius: 20px; padding: 32px; margin: 32px 0;
+        }
+        .verify-box h3 { color: #2ECC71; margin-top: 0; }
+        .verify-list { list-style: none; padding: 0; }
+        .verify-list li { padding: 8px 0; font-size: 14px; opacity: 0.6; padding-left: 24px; position: relative; }
+        .verify-list li::before { content: '✓'; position: absolute; left: 0; color: #2ECC71; font-weight: 700; }
+
+        .faq-item { margin: 24px 0; }
+        .faq-item .q { font-weight: 600; color: #fff; font-size: 15px; margin-bottom: 8px; }
+        .faq-item .a { font-size: 14px; opacity: 0.55; line-height: 1.7; }
+
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: #F5A623; font-size: 14px; margin-bottom: 32px; opacity: 0.7; transition: opacity 0.2s; }
+        .back-link:hover { opacity: 1; }
+
+        @media (max-width: 700px) {
+            .split-cards, .ngo-cards { grid-template-columns: 1fr; }
+            .flow-step { display: block; margin: 8px auto; }
+            .flow-arrow { display: block; margin: 4px auto; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <img src="https://raw.githubusercontent.com/Protect-Official/protect-token/main/assets/logo.png" alt="$PROTECT" class="nav-logo-img">
+            <span>$PROTECT</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tokenomics">Tokenomics</a>
+            <a href="index.html#airdrop" class="btn btn-sm btn-primary">Join Airdrop</a>
+        </div>
+    </div>
+</nav>
+
+<div class="doc-page">
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <h1>Donation Process</h1>
+        <p class="subtitle">How every trade turns into real-world impact for children.</p>
+
+        <h2>The Flow</h2>
+        <p>Every time someone buys, sells, or transfers $PROTECT, a <strong>1.5% fee is automatically collected</strong> by the Solana blockchain itself. Not by us — by the code.</p>
+
+        <div class="flow-diagram">
+            <div class="flow-step">🔄 You Trade $PROTECT</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">⚙️ 1.5% Auto-Collected</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">📊 Fees Split 3 Ways</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step">🛡️ Children Protected</div>
+        </div>
+
+        <h2>Fee Split</h2>
+        <p>The 1.5% fee is divided equally into three parts:</p>
+
+        <div class="split-cards">
+            <div class="split-card">
+                <div class="emoji">💚</div>
+                <div class="pct">0.5%</div>
+                <div class="label">NGO Donations</div>
+                <p style="font-size:12px;opacity:0.4;margin-top:8px">Directly to child protection organizations</p>
+            </div>
+            <div class="split-card">
+                <div class="emoji">👥</div>
+                <div class="pct">0.5%</div>
+                <div class="label">Team Operations</div>
+                <p style="font-size:12px;opacity:0.4;margin-top:8px">Development, marketing, legal</p>
+            </div>
+            <div class="split-card">
+                <div class="emoji">💧</div>
+                <div class="pct">0.5%</div>
+                <div class="label">LP Reinvestment</div>
+                <p style="font-size:12px;opacity:0.4;margin-top:8px">Strengthening the trading pool</p>
+            </div>
+        </div>
+
+        <h2>Step by Step</h2>
+        <h3>1. Automatic Fee Collection</h3>
+        <p>Every time $PROTECT tokens move, the Token-2022 protocol withholds 1.5%. This happens automatically — no manual intervention, no way to bypass it.</p>
+
+        <h3>2. Monthly Fee Harvesting</h3>
+        <p>On the 1st of each month, accumulated fees are collected from all token accounts into one place. This transaction is public and verifiable.</p>
+
+        <h3>3. Three-Way Split</h3>
+        <p>Fees are distributed to three separate wallets — donation, operations, and LP. All wallet addresses are public.</p>
+
+        <h3>4. Quarterly NGO Donations</h3>
+        <p>Every three months, the donation wallet funds are converted and sent to our partner organizations:</p>
+
+        <div class="ngo-cards">
+            <div class="ngo-card">
+                <h4>🔬 Thorn</h4>
+                <p>Technology to fight child sexual abuse</p>
+                <a href="https://thorn.org" target="_blank">thorn.org →</a>
+            </div>
+            <div class="ngo-card">
+                <h4>🏛️ NCMEC</h4>
+                <p>Missing & exploited children</p>
+                <a href="https://missingkids.org" target="_blank">missingkids.org →</a>
+            </div>
+            <div class="ngo-card">
+                <h4>📞 Polaris Project</h4>
+                <p>Human trafficking hotline</p>
+                <a href="https://polarisproject.org" target="_blank">polarisproject.org →</a>
+            </div>
+        </div>
+
+        <p>Distribution is equal (33.3% each) unless changed by community vote.</p>
+
+        <h2>How You Can Verify</h2>
+        <div class="verify-box">
+            <h3>🔍 Full Transparency</h3>
+            <ul class="verify-list">
+                <li>All wallet addresses published on this website at launch</li>
+                <li>Every transaction visible on Solana Explorer — anyone can check</li>
+                <li>Donation receipts from NGOs posted on Twitter and here</li>
+                <li>Quarterly reports with exact amounts and transaction hashes</li>
+                <li>Community governance for choosing future donation recipients</li>
+            </ul>
+        </div>
+
+        <h2>Timeline</h2>
+        <table class="timeline-table">
+            <tr><th>Phase</th><th>Donation Process</th></tr>
+            <tr><td>Pre-Launch</td><td>Building infrastructure and partnerships</td></tr>
+            <tr><td>Launch (Apr 2026)</td><td>Manual quarterly donations, full transparency reports</td></tr>
+            <tr><td>Growth (Q3 2026)</td><td>Community votes on NGO recipients</td></tr>
+            <tr><td>Scale (2027+)</td><td>Automated donation pipeline, DAO-controlled</td></tr>
+        </table>
+
+        <h2>FAQ</h2>
+
+        <div class="faq-item">
+            <div class="q">Can the team steal the donation funds?</div>
+            <div class="a">All wallet addresses are public and every transaction is on-chain. We're implementing multi-signature wallets (Squads Protocol) that require multiple approvals for any transfer. You can watch our wallets 24/7.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">What if an NGO refuses the donation?</div>
+            <div class="a">Funds get redirected to the remaining partner NGOs or a community-voted alternative.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">Can the 1.5% fee be changed?</div>
+            <div class="a">The TransferFee is set when the token is created. We plan to renounce the fee authority after launch, making it permanent and unchangeable — forever.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="q">How do I know the donations actually happen?</div>
+            <div class="a">Every donation is documented with: on-chain transaction hash, NGO receipt, and a public report. Don't trust us — verify it yourself.</div>
+        </div>
+
+        <div style="text-align:center;margin-top:60px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.04)">
+            <p style="font-size:15px;opacity:0.4;font-style:italic">Every trade protects a child. Verify it yourself. 🛡️</p>
+            <a href="index.html" class="btn btn-ghost" style="margin-top:16px">← Back to Home</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
