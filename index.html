@@ -445,12 +445,14 @@
                         <span class="checkbox-text">Follow <a href="https://twitter.com/Protect_Proj" target="_blank">@Protect_Proj</a> on Twitter</span>
                         <span class="required-tag">Required</span>
                     </label>
+                    <!-- Telegram checkbox - 텔레그램 커뮤니티 준비되면 활성화
                     <label class="checkbox-item">
                         <input type="checkbox" id="telegram-join">
                         <span class="checkmark"></span>
-                        <span class="checkbox-text">Join <a href="https://t.me/ProtectToken" target="_blank">@ProtectToken</a> on Telegram</span>
+                        <span class="checkbox-text">Join @ProtectToken on Telegram</span>
                         <span class="bonus-tag">+10% Bonus</span>
                     </label>
+                    -->
                 </div>
                 <button type="submit" class="btn btn-primary btn-full" id="airdrop-submit">Join Waitlist 🛡️</button>
             </form>
@@ -476,7 +478,7 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;vertical-align:middle"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 Twitter
             </a>
-            <a href="https://t.me/ProtectToken" target="_blank">✈️ Telegram</a>
+            <!-- 텔레그램 준비되면 활성화 <a href="https://t.me/ProtectToken" target="_blank">✈️ Telegram</a> -->
             <a href="whitepaper.html">📄 Whitepaper</a>
             <a href="https://github.com/Protect-Official/protect-token" target="_blank">📂 GitHub</a>
         </div>
@@ -634,7 +636,7 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
     const wallet = document.getElementById('wallet-input').value.trim();
     const email = document.getElementById('email-input').value.trim();
     const twitterFollow = document.getElementById('twitter-follow').checked;
-    const telegramJoin = document.getElementById('telegram-join').checked;
+    const telegramJoin = false; // 텔레그램 준비되면 활성화
     
     // Validation
     if (!validateSolanaWallet(wallet)) {
