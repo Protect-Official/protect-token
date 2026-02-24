@@ -356,22 +356,43 @@
 <section class="section section-dark" id="airdrop">
     <div class="container center">
         <h2 class="reveal">🎁 Airdrop</h2>
-        <p class="airdrop-desc reveal">2% of total supply for early supporters. Follow, retweet, join — and you're in.</p>
+        <p class="airdrop-desc reveal">2% of total supply for early supporters. Follow, join, and you're in.</p>
         <p class="wl-counter reveal"><span id="wl-count">0</span> on the waitlist</p>
         <div class="airdrop-box reveal">
             <form id="airdrop-form">
-                <input type="text" id="wallet-input" placeholder="Your Solana wallet address" required pattern="[1-9A-HJ-NP-Za-km-z]{32,44}">
-                <input type="text" id="twitter-input" placeholder="@your_twitter" required>
-                <div class="checklist">
-                    <label><input type="checkbox" required> Follow <a href="https://twitter.com/Protect_Proj" target="_blank">@Protect_Proj</a></label>
-                    <label><input type="checkbox" required> Retweet pinned tweet</label>
+                <div class="input-group">
+                    <input type="text" id="wallet-input" placeholder="Your Solana wallet address (base58, 32-44 chars)" required>
+                    <div class="input-validation" id="wallet-validation"></div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full">Join Waitlist 🛡️</button>
+                <div class="input-group">
+                    <input type="email" id="email-input" placeholder="Your email address" required>
+                    <div class="input-validation" id="email-validation"></div>
+                </div>
+                <div class="checklist">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="twitter-follow" required>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">Follow <a href="https://twitter.com/Protect_Proj" target="_blank">@Protect_Proj</a> on Twitter</span>
+                        <span class="required-tag">Required</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="telegram-join">
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text">Join <a href="https://t.me/ProtectToken" target="_blank">@ProtectToken</a> on Telegram</span>
+                        <span class="bonus-tag">+10% Bonus</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" id="airdrop-submit">Join Waitlist 🛡️</button>
             </form>
-            <div id="airdrop-ok" style="display:none">
-                <div class="ok-icon">🛡️</div>
-                <h3>You're in.</h3>
-                <p>We'll notify you before launch.</p>
+            <div id="airdrop-success" style="display:none">
+                <div class="success-animation">
+                    <div class="ok-icon">🛡️</div>
+                    <div class="check-animation">✓</div>
+                </div>
+                <h3>Welcome to the waitlist!</h3>
+                <p class="success-message">You're position <strong>#<span id="user-position">---</span></strong> on the waitlist.</p>
+                <p class="success-subtitle">We'll notify you before launch in April 2026.</p>
+                <div class="success-bonuses" id="success-bonuses"></div>
             </div>
         </div>
     </div>
@@ -490,14 +511,80 @@ reveals.forEach(el => revealObs.observe(el));
 const SUPABASE_URL = 'https://bxhxptfjnemxbnhuasuo.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4aHhwdGZqbmVteGJuaHVhc3VvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4MjQzNzUsImV4cCI6MjA4NzQwMDM3NX0.4-eJR2UOg2JNdN4c9tvlYizUQf47tbBaGDeQ0a6kMmI';
 
-// Airdrop form
+// Wallet validation
+function validateSolanaWallet(address) {
+    // Base58 character set
+    const base58Regex = /^[1-9A-HJ-NP-Za-km-z]{32,44}$/;
+    return base58Regex.test(address);
+}
+
+// Real-time validation
+document.getElementById('wallet-input').addEventListener('input', function() {
+    const wallet = this.value.trim();
+    const validation = document.getElementById('wallet-validation');
+    
+    if (!wallet) {
+        validation.textContent = '';
+        validation.className = 'input-validation';
+        return;
+    }
+    
+    if (validateSolanaWallet(wallet)) {
+        validation.textContent = '✓ Valid wallet address';
+        validation.className = 'input-validation valid';
+    } else {
+        validation.textContent = '✗ Invalid format (base58, 32-44 chars)';
+        validation.className = 'input-validation invalid';
+    }
+});
+
+document.getElementById('email-input').addEventListener('input', function() {
+    const email = this.value.trim();
+    const validation = document.getElementById('email-validation');
+    
+    if (!email) {
+        validation.textContent = '';
+        validation.className = 'input-validation';
+        return;
+    }
+    
+    if (email.includes('@') && email.includes('.')) {
+        validation.textContent = '✓ Valid email';
+        validation.className = 'input-validation valid';
+    } else {
+        validation.textContent = '✗ Please enter a valid email';
+        validation.className = 'input-validation invalid';
+    }
+});
+
+// Airdrop form submission
 document.getElementById('airdrop-form').addEventListener('submit', async e => {
     e.preventDefault();
-    const btn = document.querySelector('#airdrop-form button');
+    const btn = document.getElementById('airdrop-submit');
+    const wallet = document.getElementById('wallet-input').value.trim();
+    const email = document.getElementById('email-input').value.trim();
+    const twitterFollow = document.getElementById('twitter-follow').checked;
+    const telegramJoin = document.getElementById('telegram-join').checked;
+    
+    // Validation
+    if (!validateSolanaWallet(wallet)) {
+        alert('Please enter a valid Solana wallet address');
+        return;
+    }
+    
+    if (!email.includes('@') || !email.includes('.')) {
+        alert('Please enter a valid email address');
+        return;
+    }
+    
+    if (!twitterFollow) {
+        alert('Please confirm that you follow @Protect_Proj on Twitter');
+        return;
+    }
+    
     btn.textContent = 'Submitting...';
     btn.disabled = true;
-    const wallet = document.getElementById('wallet-input').value.trim();
-    const twitter = document.getElementById('twitter-input').value.trim();
+    
     try {
         const res = await fetch(SUPABASE_URL + '/rest/v1/airdrop_waitlist', {
             method: 'POST',
@@ -506,22 +593,58 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
                 'Authorization': 'Bearer ' + SUPABASE_KEY,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ wallet, twitter })
+            body: JSON.stringify({ 
+                wallet, 
+                email, 
+                twitter_follow: twitterFollow,
+                telegram_join: telegramJoin,
+                created_at: new Date().toISOString()
+            })
         });
+        
         if (res.status === 409) {
             btn.textContent = 'Already registered!';
             btn.style.background = '#E74C3C';
-            setTimeout(() => { btn.textContent = 'Join Waitlist 🛡️'; btn.style.background = ''; btn.disabled = false; }, 3000);
+            setTimeout(() => { 
+                btn.textContent = 'Join Waitlist 🛡️'; 
+                btn.style.background = ''; 
+                btn.disabled = false; 
+            }, 3000);
             return;
         }
+        
         if (!res.ok && res.status !== 201) throw new Error('Failed');
+        
+        // Get waitlist position
+        const countRes = await fetch(SUPABASE_URL + '/rest/v1/rpc/waitlist_count', {
+            method: 'POST',
+            headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' }
+        });
+        const totalCount = await countRes.json();
+        
+        // Show success message
+        document.getElementById('user-position').textContent = totalCount;
+        
+        // Show bonuses
+        const bonusesDiv = document.getElementById('success-bonuses');
+        let bonuses = ['✓ Twitter follow bonus'];
+        if (telegramJoin) {
+            bonuses.push('✓ Telegram +10% bonus');
+        }
+        bonusesDiv.innerHTML = '<div class="bonus-list">' + bonuses.join('<br>') + '</div>';
+        
         document.getElementById('airdrop-form').style.display = 'none';
-        document.getElementById('airdrop-ok').style.display = 'block';
+        document.getElementById('airdrop-success').style.display = 'block';
         loadWaitlistCount();
+        
     } catch(err) {
         btn.textContent = 'Error — try again';
         btn.style.background = '#E74C3C';
-        setTimeout(() => { btn.textContent = 'Join Waitlist 🛡️'; btn.style.background = ''; btn.disabled = false; }, 3000);
+        setTimeout(() => { 
+            btn.textContent = 'Join Waitlist 🛡️'; 
+            btn.style.background = ''; 
+            btn.disabled = false; 
+        }, 3000);
     }
 });
 
