@@ -478,8 +478,10 @@
                     <span class="token-label">$PROTECT</span>
                 </div>
                 <input type="range" id="amount-slider" min="1000" max="1000000" value="10000" step="1000" class="amount-slider">
-                <div class="slider-labels">
+                <div class="slider-labels" style="display:flex;justify-content:space-between;">
                     <span>1K</span>
+                    <span>10K</span>
+                    <span>100K</span>
                     <span>500K</span>
                     <span>1M</span>
                 </div>
@@ -532,16 +534,33 @@
                     <input type="text" id="daily-volume" min="1000" max="10000000" value="100000" step="1000">
                 </div>
                 <input type="range" id="volume-slider" min="1000" max="10000000" value="100000" step="1000" class="volume-slider">
+                <div class="slider-labels" style="display:flex;justify-content:space-between;margin-top:4px;">
+                    <span style="font-size:11px;color:rgba(232,236,241,0.35);">$1K</span>
+                    <span style="font-size:11px;color:rgba(232,236,241,0.35);">$100K</span>
+                    <span style="font-size:11px;color:rgba(232,236,241,0.35);">$1M</span>
+                    <span style="font-size:11px;color:rgba(232,236,241,0.35);">$5M</span>
+                    <span style="font-size:11px;color:rgba(232,236,241,0.35);">$10M</span>
+                </div>
             </div>
+            
+            <p style="text-align:center;color:rgba(232,236,241,0.35);font-size:11px;margin-top:12px;margin-bottom:0;">Based on avg. $50 trade size at $0.0001/token · Fee capped at 100 tokens/trade</p>
             
             <div class="impact-results" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px;">
                 <div class="impact-item" style="background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:16px;padding:24px;text-align:center;">
                     <div class="impact-label" style="font-size:12px;color:rgba(232,236,241,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Quarterly NGO Donations</div>
-                    <div class="impact-value" id="quarterly-donations" style="font-size:28px;font-weight:700;color:#2ECC71;">$4,562</div>
+                    <div class="impact-value" id="quarterly-donations" style="font-size:28px;font-weight:700;color:#2ECC71;">$0</div>
                 </div>
                 <div class="impact-item" style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:16px;padding:24px;text-align:center;">
                     <div class="impact-label" style="font-size:12px;color:rgba(232,236,241,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Annual Child Protection Funding</div>
-                    <div class="impact-value" id="annual-donations" style="font-size:28px;font-weight:700;color:#F5A623;">$18,248</div>
+                    <div class="impact-value" id="annual-donations" style="font-size:28px;font-weight:700;color:#F5A623;">$0</div>
+                </div>
+                <div class="impact-item" style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="impact-label" style="font-size:12px;color:rgba(232,236,241,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Quarterly Team Revenue</div>
+                    <div class="impact-value" id="quarterly-team" style="font-size:28px;font-weight:700;color:#F5A623;">$0</div>
+                </div>
+                <div class="impact-item" style="background:rgba(52,152,219,0.06);border:1px solid rgba(52,152,219,0.15);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="impact-label" style="font-size:12px;color:rgba(232,236,241,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Annual Team Revenue</div>
+                    <div class="impact-value" id="annual-team" style="font-size:28px;font-weight:700;color:#3498DB;">$0</div>
                 </div>
             </div>
         </div>
@@ -905,6 +924,8 @@ loadWaitlistCount();
     const recipientAmountEl = document.getElementById('recipient-amount');
     const quarterlyDonationsEl = document.getElementById('quarterly-donations');
     const annualDonationsEl = document.getElementById('annual-donations');
+    const quarterlyTeamEl = document.getElementById('quarterly-team');
+    const annualTeamEl = document.getElementById('annual-team');
 
     // Fee calculation function
     function calculateFees(amount) {
@@ -930,22 +951,34 @@ loadWaitlistCount();
 
     // Volume impact calculation
     function calculateVolumeImpact(dailyVolume) {
-        // Assume daily volume translates to token transfers
-        // Using approximate token price (this would be dynamic in real implementation)
-        const estimatedTokenPrice = 0.001; // $0.001 per token
-        const dailyTokenVolume = dailyVolume / estimatedTokenPrice;
+        // Realistic model: daily volume is split across many trades
+        // Average trade size assumption: $50 worth of tokens
+        const estimatedTokenPrice = 0.0001; // $0.0001 per token (launch price)
+        const avgTradeUSD = 50;
+        const avgTradeTokens = avgTradeUSD / estimatedTokenPrice; // 500,000 tokens
+        const numTrades = Math.max(1, Math.round(dailyVolume / avgTradeUSD));
         
-        // NGO share is 0.5% of transfer fee
-        const dailyNgoTokens = Math.min(dailyTokenVolume * 0.005, dailyTokenVolume * 0.015 / 3);
+        // Each trade: 1.5% fee capped at 100 tokens
+        const feePerTrade = Math.min(avgTradeTokens * 0.015, 100);
+        const ngoPerTrade = feePerTrade / 3; // NGO gets 1/3
+        const teamPerTrade = feePerTrade / 3; // Team gets 1/3
+        
+        const dailyNgoTokens = ngoPerTrade * numTrades;
+        const dailyTeamTokens = teamPerTrade * numTrades;
         const dailyNgoDollars = dailyNgoTokens * estimatedTokenPrice;
+        const dailyTeamDollars = dailyTeamTokens * estimatedTokenPrice;
         
         // Quarterly (90 days) and annual (365 days)
         const quarterlyDonations = dailyNgoDollars * 90;
         const annualDonations = dailyNgoDollars * 365;
+        const quarterlyTeam = dailyTeamDollars * 90;
+        const annualTeam = dailyTeamDollars * 365;
 
         return {
             quarterly: quarterlyDonations,
-            annual: annualDonations
+            annual: annualDonations,
+            quarterlyTeam: quarterlyTeam,
+            annualTeam: annualTeam
         };
     }
 
@@ -1003,6 +1036,8 @@ loadWaitlistCount();
         // Animate impact updates
         animateNumber(quarterlyDonationsEl, impact.quarterly, (val) => '$' + Math.round(val).toLocaleString());
         animateNumber(annualDonationsEl, impact.annual, (val) => '$' + Math.round(val).toLocaleString());
+        animateNumber(quarterlyTeamEl, impact.quarterlyTeam, (val) => '$' + Math.round(val).toLocaleString());
+        animateNumber(annualTeamEl, impact.annualTeam, (val) => '$' + Math.round(val).toLocaleString());
     }
 
     // Sync input and slider for transfer amount
