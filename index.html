@@ -688,11 +688,7 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
             },
             body: JSON.stringify({ 
                 wallet, 
-                twitter: twitterHandle.replace(/^@/, ''),
-
-                twitter_follow: twitterFollow,
-                telegram_join: telegramJoin,
-                created_at: new Date().toISOString()
+                twitter: twitterHandle.replace(/^@/, '')
             })
         });
         
