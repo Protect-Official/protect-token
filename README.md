@@ -7,10 +7,14 @@ Every transaction automatically contributes to child protection organizations th
 ## Structure
 
 ```
-assets/          — Logo & banner (final versions)
-docs/            — Whitepaper, branding, airdrop strategy
-website/         — Landing page (GitHub Pages)
-ROADMAP.md       — Project roadmap
+assets/                    — Logo & banner (final versions)
+docs/                     — Documentation
+  ├── WHITEPAPER.md       — Technical whitepaper
+  ├── TERMS.md            — Terms of Service
+  ├── PRIVACY.md          — Privacy Policy
+  └── DONATION-PROCESS.md — Donation process & transparency
+website/                  — Landing page (GitHub Pages)
+ROADMAP.md               — Project roadmap
 ```
 
 ## Token Info
@@ -31,10 +35,18 @@ ROADMAP.md       — Project roadmap
 | Donation | 3% |
 | Airdrop | 2% |
 
+## Documentation
+
+- 📄 [Whitepaper](docs/WHITEPAPER.md) — Technical overview and mission
+- 📜 [Terms of Service](docs/TERMS.md) — User terms and conditions  
+- 🔒 [Privacy Policy](docs/PRIVACY.md) — Data protection and privacy
+- 💝 [Donation Process](docs/DONATION-PROCESS.md) — Transparency and fund allocation
+
 ## Links
 
 - Website: [protect-official.github.io/protect-token](https://protect-official.github.io/protect-token/website/index.html)
 - Twitter: [@Protect_Proj](https://twitter.com/Protect_Proj)
+- Telegram: [@ProtectToken](https://t.me/ProtectToken)
 
 ## License
 
