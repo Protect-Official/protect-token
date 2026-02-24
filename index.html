@@ -451,7 +451,11 @@
                     <div class="input-validation" id="wallet-validation"></div>
                 </div>
                 <div class="input-group">
-                    <input type="email" id="email-input" placeholder="Your email address" required>
+                    <input type="text" id="twitter-input" placeholder="Your Twitter/X handle (e.g. @username)" required>
+                    <div class="input-validation" id="twitter-validation"></div>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email-input" placeholder="Your email address (optional)">
                     <div class="input-validation" id="email-validation"></div>
                 </div>
                 <div class="checklist">
@@ -650,6 +654,7 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
     e.preventDefault();
     const btn = document.getElementById('airdrop-submit');
     const wallet = document.getElementById('wallet-input').value.trim();
+    const twitterHandle = document.getElementById('twitter-input').value.trim();
     const email = document.getElementById('email-input').value.trim();
     const twitterFollow = document.getElementById('twitter-follow').checked;
     const telegramJoin = false; // 텔레그램 준비되면 활성화
@@ -660,8 +665,8 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
         return;
     }
     
-    if (!email.includes('@') || !email.includes('.')) {
-        alert('Please enter a valid email address');
+    if (!twitterHandle || twitterHandle.length < 2) {
+        alert('Please enter your Twitter/X handle');
         return;
     }
     
@@ -683,7 +688,8 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
             },
             body: JSON.stringify({ 
                 wallet, 
-                email, 
+                twitter: twitterHandle.replace(/^@/, ''),
+                email: email || null,
                 twitter_follow: twitterFollow,
                 telegram_join: telegramJoin,
                 created_at: new Date().toISOString()
