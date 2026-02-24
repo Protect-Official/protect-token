@@ -476,7 +476,7 @@
             <div class="simulator-input-section">
                 <label for="transfer-amount">Transfer Amount</label>
                 <div class="input-with-slider">
-                    <input type="number" id="transfer-amount" min="1000" max="1000000" value="10000" placeholder="10,000">
+                    <input type="text" id="transfer-amount" min="1000" max="1000000" value="10000" placeholder="10,000">
                     <span class="token-label">$PROTECT</span>
                 </div>
                 <input type="range" id="amount-slider" min="1000" max="1000000" value="10000" step="1000" class="amount-slider">
@@ -531,7 +531,7 @@
                 <label for="daily-volume">Daily Trading Volume</label>
                 <div class="volume-input-wrapper">
                     <span class="currency-symbol">$</span>
-                    <input type="number" id="daily-volume" min="1000" max="10000000" value="100000" step="1000">
+                    <input type="text" id="daily-volume" min="1000" max="10000000" value="100000" step="1000">
                 </div>
                 <input type="range" id="volume-slider" min="1000" max="10000000" value="100000" step="1000" class="volume-slider">
             </div>
@@ -1071,8 +1071,10 @@ loadWaitlistCount();
         volumeSlider.value = 100000;
     }
     
-    // Small delay to ensure DOM is ready
-    setTimeout(updateCalculations, 100);
+    // Run initial calculation immediately and with delay
+    updateCalculations();
+    setTimeout(updateCalculations, 300);
+    setTimeout(updateCalculations, 1000);
 })();
 </script>
 
