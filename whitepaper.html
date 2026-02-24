@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitepaper — $PROTECT</title>
+    <meta name="description" content="$PROTECT Whitepaper v2 — Protecting the Innocent. On-Chain.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .doc-page { padding: 120px 0 80px; }
+        .doc-page h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 5vw, 56px); font-weight: 700; color: #F5A623; margin-bottom: 4px; }
+        .doc-page .version { font-size: 14px; opacity: 0.3; margin-bottom: 8px; }
+        .doc-page .motto { font-size: 20px; opacity: 0.5; font-style: italic; margin-bottom: 48px; }
+        .doc-page h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; color: #F5A623; margin: 56px 0 20px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.04); }
+        .doc-page h3 { font-size: 17px; margin: 28px 0 12px; }
+        .doc-page p, .doc-page li { font-size: 15px; opacity: 0.65; margin-bottom: 12px; line-height: 1.8; }
+        .doc-page strong { color: #fff; opacity: 1; }
+        .doc-page ul { padding-left: 20px; margin-bottom: 16px; }
+        .doc-page li { margin-bottom: 6px; }
+        .doc-page blockquote { border-left: 3px solid #F5A623; padding-left: 20px; margin: 24px 0; font-style: italic; opacity: 0.5; }
+        .doc-page a { color: #F5A623; }
+
+        .wp-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        .wp-table th { text-align: left; padding: 10px 14px; color: #F5A623; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .wp-table td { padding: 10px 14px; opacity: 0.6; border-bottom: 1px solid rgba(255,255,255,0.03); }
+
+        .abstract-box { background: rgba(245,166,35,0.04); border: 1px solid rgba(245,166,35,0.1); border-radius: 20px; padding: 32px; margin: 24px 0; }
+        .abstract-box p { opacity: 0.6; margin-bottom: 8px; }
+        .abstract-box p:last-child { margin-bottom: 0; }
+
+        .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 16px; margin: 16px 0; }
+        .check-item { font-size: 14px; opacity: 0.55; padding: 6px 0; }
+        .check-item::before { content: '✅ '; }
+
+        .volume-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+        .vol-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 20px; text-align: center; }
+        .vol-card .vol { font-family: 'JetBrains Mono', monospace; font-size: 14px; opacity: 0.4; margin-bottom: 4px; }
+        .vol-card .amt { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: #2ECC71; }
+        .vol-card .lbl { font-size: 11px; opacity: 0.35; margin-top: 4px; }
+
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: #F5A623; font-size: 14px; margin-bottom: 32px; opacity: 0.7; transition: opacity 0.2s; }
+        .back-link:hover { opacity: 1; }
+
+        @media (max-width: 700px) {
+            .check-grid { grid-template-columns: 1fr; }
+            .volume-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar scrolled">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <img src="https://raw.githubusercontent.com/Protect-Official/protect-token/main/assets/logo.png" alt="$PROTECT" class="nav-logo-img">
+            <span>$PROTECT</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tokenomics">Tokenomics</a>
+            <a href="donation-process.html">Donations</a>
+            <a href="index.html#airdrop" class="btn btn-sm btn-primary">Join Airdrop</a>
+        </div>
+    </div>
+</nav>
+
+<div class="doc-page">
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <h1>$PROTECT Whitepaper</h1>
+        <p class="version">Version 2.0 — February 2026</p>
+        <p class="motto">Protecting the Innocent. On-Chain.</p>
+
+        <div class="abstract-box">
+            <p><strong>Abstract</strong></p>
+            <p>$PROTECT is a Solana-based community token with a built-in donation mechanism dedicated to fighting child exploitation worldwide. Every transaction contributes directly to verified NGOs through transparent, on-chain donations.</p>
+            <p>Built on <strong>Token-2022</strong> with native TransferFee — no external contracts, no workarounds. The fee is enforced at the protocol level.</p>
+            <blockquote>"The files are open. Now we act."</blockquote>
+        </div>
+
+        <h2>1. Problem</h2>
+        <p>Child exploitation and trafficking remain among the most underreported and underfunded crises globally. Despite high-profile revelations, systemic action remains slow. Meanwhile, the crypto space generates billions in daily volume — yet rarely channels that energy toward meaningful causes.</p>
+
+        <h2>2. Solution</h2>
+        <ul>
+            <li><strong>Meme energy</strong> drives attention and community</li>
+            <li><strong>Built-in transfer fee</strong> ensures consistent funding (protocol-level)</li>
+            <li><strong>On-chain transparency</strong> proves every dollar donated</li>
+            <li><strong>Community governance</strong> lets holders choose where funds go</li>
+            <li><strong>Long-term vision</strong>: Building blockchain infrastructure for child protection</li>
+        </ul>
+
+        <h2>3. Tokenomics</h2>
+        <p><strong>Total Supply: 1,000,000,000 $PROTECT</strong><br>Program: Solana Token-2022 (Token Extensions)</p>
+
+        <table class="wp-table">
+            <tr><th>Allocation</th><th>%</th><th>Amount</th><th>Purpose</th></tr>
+            <tr><td>Liquidity Pool</td><td><strong>65%</strong></td><td>650M</td><td>DEX trading (LP tokens burned 🔥)</td></tr>
+            <tr><td>Team</td><td><strong>15%</strong></td><td>150M</td><td>Operations (6mo cliff + 12mo vesting 🔒)</td></tr>
+            <tr><td>Reserve</td><td><strong>10%</strong></td><td>100M</td><td>CEX listings, partnerships, emergency</td></tr>
+            <tr><td>Marketing</td><td><strong>5%</strong></td><td>50M</td><td>Promotion, campaigns</td></tr>
+            <tr><td>Donation Fund</td><td><strong>3%</strong></td><td>30M</td><td>Direct NGO donations (quarterly)</td></tr>
+            <tr><td>Community Airdrop</td><td><strong>2%</strong></td><td>20M</td><td>Early supporter rewards</td></tr>
+        </table>
+
+        <h3>Transfer Fee</h3>
+        <p><strong>Unified 1.5% fee on all transfers</strong> — enforced by Token-2022 TransferFee extension.</p>
+
+        <table class="wp-table">
+            <tr><th>Destination</th><th>Share</th><th>Purpose</th></tr>
+            <tr><td>Donation Wallet</td><td><strong>0.5%</strong></td><td>💚 NGO funding</td></tr>
+            <tr><td>Team/Operations</td><td><strong>0.5%</strong></td><td>👥 Sustainability</td></tr>
+            <tr><td>Liquidity Pool</td><td><strong>0.5%</strong></td><td>💧 Price stability</td></tr>
+        </table>
+
+        <p><strong>Max Fee Cap:</strong> 100 $PROTECT per transaction — protects large holders from excessive fees.</p>
+        <p><strong>Why 1.5%?</strong> Industry average for charity tokens is 5-12%. Ours is significantly lower — enough to generate meaningful donations, low enough to not discourage trading.</p>
+
+        <h3>Anti-Rug Measures</h3>
+        <div class="check-grid">
+            <div class="check-item">LP tokens permanently burned</div>
+            <div class="check-item">Team tokens: 6mo cliff + 12mo vesting</div>
+            <div class="check-item">Reserve wallet: multisig controlled</div>
+            <div class="check-item">Donation wallet: quarterly unlock only</div>
+            <div class="check-item">All wallets publicly visible on-chain</div>
+            <div class="check-item">Mint authority renounced</div>
+            <div class="check-item">Freeze authority renounced</div>
+        </div>
+
+        <h2>4. Donation Structure</h2>
+        <h3>Target NGOs</h3>
+        <table class="wp-table">
+            <tr><th>Organization</th><th>Focus</th></tr>
+            <tr><td><strong>Thorn</strong></td><td>AI-powered child exploitation detection</td></tr>
+            <tr><td><strong>NCMEC</strong></td><td>Missing & exploited children (US)</td></tr>
+            <tr><td><strong>Polaris Project</strong></td><td>Human trafficking hotline & data</td></tr>
+            <tr><td><strong>ECPAT</strong></td><td>International child protection network</td></tr>
+            <tr><td><strong>RAINN</strong></td><td>Anti-sexual violence support</td></tr>
+        </table>
+
+        <h3>Donation Phases</h3>
+        <p><strong>Phase 1 — Manual (Launch ~ 3 months):</strong> Fees accumulate in public donation wallet. Monthly transfers to NGOs. Transaction hashes shared publicly. NGO receipts published.</p>
+        <p><strong>Phase 2 — Community Governance (3-6 months):</strong> $PROTECT holders vote on NGO allocation via Snapshot. Quarterly voting cycles. Funds distributed proportionally.</p>
+        <p><strong>Phase 3 — Automated (6+ months):</strong> On-chain auto-distribution. Real-time donation dashboard. Fully trustless and verifiable.</p>
+
+        <h3>Transparency</h3>
+        <ul>
+            <li>All wallet addresses publicly listed</li>
+            <li>Monthly donation reports with TX hashes</li>
+            <li>NGO confirmation receipts</li>
+            <li>Live dashboard tracking all flows</li>
+            <li>Quarterly comprehensive reports</li>
+        </ul>
+
+        <h2>5. Revenue Model</h2>
+        <p>Fee distribution at various daily volumes:</p>
+
+        <div class="volume-cards">
+            <div class="vol-card">
+                <div class="vol">$10K/day volume</div>
+                <div class="amt">$50</div>
+                <div class="lbl">daily donation</div>
+            </div>
+            <div class="vol-card">
+                <div class="vol">$100K/day volume</div>
+                <div class="amt">$500</div>
+                <div class="lbl">daily donation</div>
+            </div>
+            <div class="vol-card">
+                <div class="vol">$1M/day volume</div>
+                <div class="amt">$5,000</div>
+                <div class="lbl">daily donation</div>
+            </div>
+        </div>
+
+        <h3>Additional Revenue (Planned)</h3>
+        <ul>
+            <li>NFT collection (50/50 donation/operations)</li>
+            <li>Merchandise (30/70 donation/operations)</li>
+            <li>Partnership deals (case by case)</li>
+        </ul>
+
+        <h2>6. Long-Term Vision</h2>
+        <h3>Blockchain Infrastructure for Child Protection</h3>
+        <p>Beyond donations, $PROTECT envisions building blockchain-based tools for the child protection ecosystem:</p>
+        <ul>
+            <li><strong>Immutable Record Keeping</strong> — Supporting NGOs in utilizing blockchain for tamper-proof case documentation</li>
+            <li><strong>Cross-Border Coordination</strong> — Enabling international agencies to share verified data</li>
+            <li><strong>Donation Transparency Standard</strong> — Creating an open-source framework other charity projects can adopt</li>
+            <li><strong>Technology Grants</strong> — Funding blockchain R&D specifically for child safety applications</li>
+        </ul>
+
+        <h2>7. Roadmap</h2>
+        <h3>Q1 2026 — Foundation ✅</h3>
+        <div class="check-grid">
+            <div class="check-item">Project planning & tokenomics</div>
+            <div class="check-item">Token-2022 dev & devnet testing</div>
+            <div class="check-item">TransferFee verified (6 tests passed)</div>
+            <div class="check-item">Website launch</div>
+            <div class="check-item">Whitepaper v2</div>
+        </div>
+        <ul>
+            <li>Community channels (Discord, Telegram)</li>
+            <li>Twitter marketing begins</li>
+        </ul>
+
+        <h3>Q2 2026 — Launch 🚀</h3>
+        <ul>
+            <li>Mainnet token deployment</li>
+            <li>DEX launch (Raydium/Orca)</li>
+            <li>LP burn + authority renounce</li>
+            <li>Community airdrop distribution</li>
+            <li>First NGO donation + public proof</li>
+            <li>CoinGecko / CMC listing</li>
+        </ul>
+
+        <h3>Q3 2026 — Growth</h3>
+        <ul>
+            <li>CEX listings</li>
+            <li>Official NGO partnerships</li>
+            <li>Snapshot governance voting</li>
+            <li>Donation dashboard live</li>
+            <li>10,000+ holders</li>
+        </ul>
+
+        <h3>Q4 2026 — Scale</h3>
+        <ul>
+            <li>Automated donation contracts</li>
+            <li>Annual donation report</li>
+            <li>NFT collection launch</li>
+            <li>Blockchain infrastructure R&D</li>
+            <li>Expansion to additional causes</li>
+        </ul>
+
+        <h2>8. Technical Details</h2>
+        <table class="wp-table">
+            <tr><th>Parameter</th><th>Value</th></tr>
+            <tr><td>Blockchain</td><td>Solana</td></tr>
+            <tr><td>Token Program</td><td>Token-2022 (SPL Token Extensions)</td></tr>
+            <tr><td>Fee Mechanism</td><td>TransferFeeConfig extension</td></tr>
+            <tr><td>Fee Rate</td><td>150 basis points (1.5%)</td></tr>
+            <tr><td>Max Fee</td><td>100 $PROTECT per transfer</td></tr>
+            <tr><td>Decimals</td><td>9</td></tr>
+        </table>
+
+        <h3>Devnet Verification (Completed)</h3>
+        <div class="check-grid">
+            <div class="check-item">Token creation</div>
+            <div class="check-item">Transfer with fee</div>
+            <div class="check-item">Fee collection (harvest)</div>
+            <div class="check-item">Fee withdrawal</div>
+            <div class="check-item">Batch airdrop</div>
+            <div class="check-item">Max fee cap</div>
+        </div>
+
+        <h2>9. Links</h2>
+        <ul>
+            <li>Website: <a href="https://protect-official.github.io/protect-token/">protect-official.github.io/protect-token</a></li>
+            <li>Twitter/X: <a href="https://twitter.com/Protect_Proj">@Protect_Proj</a></li>
+            <li>Telegram: <a href="https://t.me/ProtectToken">@ProtectToken</a></li>
+            <li>Discord: <em>(coming soon)</em></li>
+            <li>GitHub: <a href="https://github.com/Protect-Official/protect-token">Protect-Official/protect-token</a></li>
+            <li>Donation Wallet: <em>(published at launch)</em></li>
+        </ul>
+
+        <div style="text-align:center;margin-top:60px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.04)">
+            <p style="font-size:18px;opacity:0.5;font-style:italic">Every trade protects a child. 🛡️</p>
+            <a href="index.html" class="btn btn-ghost" style="margin-top:16px">← Back to Home</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
