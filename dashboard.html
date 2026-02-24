@@ -498,29 +498,41 @@
         <h2 class="dashboard-section-title reveal">Transparency Metrics</h2>
         <p class="dashboard-section-desc reveal">On-chain verifiable proof of our commitments</p>
         
-        <div class="transparency-badges">
-            <div class="transparency-badge reveal">
-                <span class="badge-icon">🔗</span>
-                <h3 class="badge-title">On-Chain Enforcement</h3>
-                <p class="badge-desc">Transfer fees built into Token-2022 program, not reliant on promises</p>
+        <div class="transparency-badges" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:800px;margin:40px auto;">
+            <div class="transparency-badge reveal" style="background:linear-gradient(145deg,rgba(245,166,35,0.04),rgba(255,255,255,0.02));border:1px solid rgba(245,166,35,0.12);border-radius:20px;padding:32px 24px;text-align:left;position:relative;overflow:hidden;transition:all 0.4s;">
+                <div style="width:52px;height:52px;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </div>
+                <h3 class="badge-title" style="color:#fff;font-size:17px;margin-bottom:8px;">On-Chain Enforcement</h3>
+                <p class="badge-desc" style="color:rgba(232,236,241,0.65);font-size:13.5px;line-height:1.6;">Transfer fees built into Token-2022 program, not reliant on promises</p>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#2ECC71;text-transform:uppercase;letter-spacing:1px;"><span style="width:6px;height:6px;background:#2ECC71;border-radius:50%;display:inline-block;animation:pulse-dot 2s infinite;"></span>Protocol-Level</div>
             </div>
             
-            <div class="transparency-badge reveal reveal-d1">
-                <span class="badge-icon">🔍</span>
-                <h3 class="badge-title">Public Verification</h3>
-                <p class="badge-desc">All donations trackable via Solana Explorer with transaction hashes</p>
+            <div class="transparency-badge reveal reveal-d1" style="background:linear-gradient(145deg,rgba(245,166,35,0.04),rgba(255,255,255,0.02));border:1px solid rgba(245,166,35,0.12);border-radius:20px;padding:32px 24px;text-align:left;position:relative;overflow:hidden;transition:all 0.4s;">
+                <div style="width:52px;height:52px;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3 class="badge-title" style="color:#fff;font-size:17px;margin-bottom:8px;">Public Verification</h3>
+                <p class="badge-desc" style="color:rgba(232,236,241,0.65);font-size:13.5px;line-height:1.6;">All donations trackable via Solana Explorer with transaction hashes</p>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#2ECC71;text-transform:uppercase;letter-spacing:1px;"><span style="width:6px;height:6px;background:#2ECC71;border-radius:50%;display:inline-block;animation:pulse-dot 2s infinite;"></span>Verifiable</div>
             </div>
             
-            <div class="transparency-badge reveal reveal-d2">
-                <span class="badge-icon">🔒</span>
-                <h3 class="badge-title">Immutable Records</h3>
-                <p class="badge-desc">Blockchain-based audit trail that cannot be altered or deleted</p>
+            <div class="transparency-badge reveal reveal-d2" style="background:linear-gradient(145deg,rgba(245,166,35,0.04),rgba(255,255,255,0.02));border:1px solid rgba(245,166,35,0.12);border-radius:20px;padding:32px 24px;text-align:left;position:relative;overflow:hidden;transition:all 0.4s;">
+                <div style="width:52px;height:52px;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="badge-title" style="color:#fff;font-size:17px;margin-bottom:8px;">Immutable Records</h3>
+                <p class="badge-desc" style="color:rgba(232,236,241,0.65);font-size:13.5px;line-height:1.6;">Blockchain-based audit trail that cannot be altered or deleted</p>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#2ECC71;text-transform:uppercase;letter-spacing:1px;"><span style="width:6px;height:6px;background:#2ECC71;border-radius:50%;display:inline-block;animation:pulse-dot 2s infinite;"></span>Permanent</div>
             </div>
             
-            <div class="transparency-badge reveal reveal-d3">
-                <span class="badge-icon">⚖️</span>
-                <h3 class="badge-title">Equal Distribution</h3>
-                <p class="badge-desc">Automated smart contract splits ensure fair allocation to all NGO partners</p>
+            <div class="transparency-badge reveal reveal-d3" style="background:linear-gradient(145deg,rgba(245,166,35,0.04),rgba(255,255,255,0.02));border:1px solid rgba(245,166,35,0.12);border-radius:20px;padding:32px 24px;text-align:left;position:relative;overflow:hidden;transition:all 0.4s;">
+                <div style="width:52px;height:52px;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><polyline points="17 8 12 3 7 8"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+                </div>
+                <h3 class="badge-title" style="color:#fff;font-size:17px;margin-bottom:8px;">Equal Distribution</h3>
+                <p class="badge-desc" style="color:rgba(232,236,241,0.65);font-size:13.5px;line-height:1.6;">Automated smart contract splits ensure fair allocation to all NGO partners</p>
+                <div style="margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#2ECC71;text-transform:uppercase;letter-spacing:1px;"><span style="width:6px;height:6px;background:#2ECC71;border-radius:50%;display:inline-block;animation:pulse-dot 2s infinite;"></span>Automated</div>
             </div>
         </div>
         
