@@ -52,7 +52,7 @@ $PROTECT bridges the gap between crypto culture and real-world impact:
 | Team/Operations | 0.5% | Sustainability |
 | Liquidity Pool | 0.5% | Price stability |
 
-**Max Fee Cap:** 100 $PROTECT per transaction (protects large holders from excessive fees)
+**Max Fee Cap:** 10,000 $PROTECT per transaction (protects large holders from excessive fees)
 
 **Why 1.5%?**
 - Industry average for charity tokens: 5-12% — ours is significantly lower
@@ -174,7 +174,7 @@ This vision positions $PROTECT not just as a donation token, but as a catalyst f
 - **Token Program:** Token-2022 (SPL Token Extensions)
 - **Fee Mechanism:** TransferFeeConfig extension (protocol-level)
 - **Fee Rate:** 150 basis points (1.5%)
-- **Max Fee:** 100 $PROTECT per transfer
+- **Max Fee:** 10,000 $PROTECT per transfer
 - **Decimals:** 9
 
 ### Devnet Verification (Completed)
