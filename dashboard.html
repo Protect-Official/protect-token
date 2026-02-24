@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$PROTECT — Donation Dashboard</title>
+    <meta name="description" content="Real-time tracking of $PROTECT donations to child protection NGOs. Transparent, on-chain impact reporting.">
+    <meta name="theme-color" content="#F5A623">
+    <meta property="og:title" content="$PROTECT — Donation Dashboard">
+    <meta property="og:description" content="Track real-time donations and transparency metrics for child protection.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Protect_Proj">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dashboard-specific styles */
+        .dashboard-hero {
+            background: linear-gradient(135deg, rgba(10,14,23,0.9), rgba(245,166,35,0.05));
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .dashboard-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23F5A623' stroke-width='0.1' opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+        .dashboard-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #F5A623, #FFD700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        .dashboard-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(245,166,35,0.1);
+            border: 1px solid rgba(245,166,35,0.3);
+            border-radius: 8px;
+            font-weight: 600;
+            color: #F5A623;
+            font-size: 14px;
+        }
+        .total-donations {
+            background: linear-gradient(135deg, rgba(46,204,113,0.1), rgba(46,204,113,0.02));
+            border: 1px solid rgba(46,204,113,0.2);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        .donation-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #2ECC71;
+            margin-bottom: 16px;
+            text-shadow: 0 0 30px rgba(46,204,113,0.3);
+        }
+        .donation-label {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+        .launch-notice {
+            color: #F5A623;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .section-dashboard {
+            padding: 80px 0;
+        }
+        .section-dashboard.section-alt {
+            background: rgba(255,255,255,0.01);
+        }
+        .dashboard-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .dashboard-section-desc {
+            text-align: center;
+            opacity: 0.7;
+            margin-bottom: 48px;
+            font-size: 1.1rem;
+        }
+        .fee-history-table {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 32px 0;
+        }
+        .table-header {
+            background: rgba(245,166,35,0.1);
+            padding: 20px 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 24px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #F5A623;
+        }
+        .table-empty {
+            padding: 60px 24px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+        .table-empty-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+        .table-empty-text {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .table-empty-date {
+            color: #F5A623;
+            font-weight: 600;
+        }
+        .ngo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+        .ngo-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .ngo-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245,166,35,0.3);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+        }
+        .ngo-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #F5A623, #FFD700);
+        }
+        .ngo-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .ngo-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #F5A623;
+        }
+        .ngo-description {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        .ngo-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .ngo-stat {
+            text-align: center;
+            padding: 12px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+        .ngo-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: #2ECC71;
+            display: block;
+            font-size: 18px;
+        }
+        .ngo-stat-label {
+            font-size: 12px;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .transparency-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+        .transparency-badge {
+            background: linear-gradient(135deg, rgba(52,152,219,0.1), rgba(52,152,219,0.02));
+            border: 1px solid rgba(52,152,219,0.3);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .transparency-badge:hover {
+            transform: translateY(-4px);
+            border-color: rgba(52,152,219,0.5);
+        }
+        .badge-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .badge-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #3498DB;
+        }
+        .badge-desc {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        .coming-soon-section {
+            background: linear-gradient(135deg, rgba(156,89,182,0.1), rgba(156,89,182,0.02));
+            border: 1px solid rgba(156,89,182,0.2);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            margin: 48px 0;
+        }
+        .coming-soon-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            opacity: 0.7;
+        }
+        .coming-soon-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #9B59B6;
+        }
+        .coming-soon-desc {
+            opacity: 0.7;
+            margin-bottom: 24px;
+        }
+        .coming-soon-timeline {
+            color: #F5A623;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .dashboard-title {
+                font-size: 2.5rem;
+            }
+            .donation-amount {
+                font-size: 3rem;
+            }
+            .dashboard-section-title {
+                font-size: 2rem;
+            }
+            .table-header {
+                display: none;
+            }
+            .ngo-grid {
+                grid-template-columns: 1fr;
+            }
+            .transparency-badges {
+                grid-template-columns: 1fr;
+            }
+            .total-donations {
+                padding: 32px 24px;
+                margin: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <img src="https://raw.githubusercontent.com/Protect-Official/protect-token/main/assets/logo.png" alt="$PROTECT" class="nav-logo-img">
+            <span>$PROTECT</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#tokenomics">Tokenomics</a>
+            <a href="donation-process.html">Donations</a>
+            <a href="dashboard.html" style="color: #F5A623;">Dashboard</a>
+            <a href="index.html#roadmap">Roadmap</a>
+            <a href="whitepaper.html">Whitepaper</a>
+            <a href="index.html#airdrop" class="btn btn-sm btn-primary">Join Airdrop</a>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#tokenomics">Tokenomics</a>
+    <a href="donation-process.html">Donations</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="index.html#roadmap">Roadmap</a>
+    <a href="whitepaper.html">Whitepaper</a>
+    <a href="index.html#airdrop">Join Airdrop</a>
+</div>
+
+<!-- Dashboard Hero -->
+<section class="dashboard-hero">
+    <div class="container center">
+        <div class="reveal">
+            <h1 class="dashboard-title">Donation Dashboard</h1>
+        </div>
+        <div class="reveal reveal-d1">
+            <p class="dashboard-subtitle">Real-time transparency for child protection funding</p>
+        </div>
+        <div class="reveal reveal-d2">
+            <div class="status-badge">
+                <span>🔧</span>
+                Pre-Launch — Launching Q2 2026
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Total Donations Section -->
+<section class="section-dashboard">
+    <div class="container">
+        <div class="total-donations reveal">
+            <div class="donation-amount">$0</div>
+            <div class="donation-label">Total Donations to NGOs</div>
+            <div class="launch-notice">Launching in Child Abuse Prevention Month — April 2026</div>
+        </div>
+    </div>
+</section>
+
+<!-- Fee Collection History -->
+<section class="section-dashboard section-alt">
+    <div class="container">
+        <h2 class="dashboard-section-title reveal">Fee Collection History</h2>
+        <p class="dashboard-section-desc reveal">Complete transparency of all transfer fees collected and distributed</p>
+        
+        <div class="fee-history-table reveal reveal-d1">
+            <div class="table-header">
+                <div>Date</div>
+                <div>Amount Collected</div>
+                <div>To NGOs</div>
+                <div>Transaction</div>
+            </div>
+            <div class="table-empty">
+                <div class="table-empty-icon">📊</div>
+                <div class="table-empty-text">No transactions yet</div>
+                <div class="table-empty-date">Launching Q2 2026</div>
+            </div>
+        </div>
+        
+        <!-- TODO: Solana API Integration Point -->
+        <!-- 
+        Integration Notes:
+        - Connect to Solana RPC endpoint
+        - Query transaction history for PROTECT token transfers
+        - Filter for TransferFee events from Token-2022 program
+        - Display real-time fee collection data
+        - Link to Solana Explorer for transaction verification
+        
+        Example API calls:
+        - getSignaturesForAddress() for fee wallet
+        - getTransaction() for detailed transfer data
+        - Use WebSocket for real-time updates
+        -->
+    </div>
+</section>
+
+<!-- Donation Recipients -->
+<section class="section-dashboard">
+    <div class="container">
+        <h2 class="dashboard-section-title reveal">Donation Recipients</h2>
+        <p class="dashboard-section-desc reveal">Verified NGOs fighting child exploitation worldwide</p>
+        
+        <div class="ngo-grid">
+            <div class="ngo-card reveal">
+                <span class="ngo-icon">🔬</span>
+                <h3 class="ngo-name">Thorn</h3>
+                <p class="ngo-description">Building technology to defend children from sexual abuse. Founded by Ashton Kutcher & Demi Moore, Thorn creates tools that help law enforcement identify victims and catch predators.</p>
+                <div class="ngo-stats">
+                    <div class="ngo-stat">
+                        <span class="ngo-stat-value">$0</span>
+                        <span class="ngo-stat-label">Received</span>
+                    </div>
+                    <div class="ngo-stat">
+                        <span class="ngo-stat-value">33%</span>
+                        <span class="ngo-stat-label">Share</span>
+                    </div>
+                </div>
+                <a href="https://thorn.org" target="_blank" class="btn btn-ghost" style="margin-top: 20px; width: 100%;">
+                    Visit Thorn.org →
+                </a>
+            </div>
+            
+            <div class="ngo-card reveal reveal-d1">
+                <span class="ngo-icon">🏛️</span>
+                <h3 class="ngo-name">NCMEC</h3>
+                <p class="ngo-description">National Center for Missing & Exploited Children. The leading US clearinghouse for child protection, operating the national hotline and coordinating recovery efforts.</p>
+                <div class="ngo-stats">
+                    <div class="ngo-stat">
+                        <span class="ngo-stat-value">$0</span>
+                        <span class="ngo-stat-label">Received</span>
+                    </div>
+                    <div class="ngo-stat">
+                        <span class="ngo-stat-value">33%</span>
+                        <span class="ngo-stat-label">Share</span>
+                    </div>
+                </div>
+                <a href="https://missingkids.org" target="_blank" class="btn btn-ghost" style="margin-top: 20px; width: 100%;">
+                    Visit MissingKids.org →
+                </a>
+            </div>
+            
+            <div class="ngo-card reveal reveal-d2">
+                <span class="ngo-icon">📞</span>
+                <h3 class="ngo-name">Polaris Project</h3>
+                <p class="ngo-description">Operating the US National Human Trafficking Hotline. Data-driven fight against trafficking with direct victim services and policy advocacy.</p>
+                <div class="ngo-stats">
+                    <div class="ngo-stat">
+                        <span class="ngo-stat-value">$0</span>
+                        <span class="ngo-stat-label">Received</span>
+                    </div>
+                    <div class="ngo-stat">
+                        <span class="ngo-stat-value">33%</span>
+                        <span class="ngo-stat-label">Share</span>
+                    </div>
+                </div>
+                <a href="https://polarisproject.org" target="_blank" class="btn btn-ghost" style="margin-top: 20px; width: 100%;">
+                    Visit PolarisProject.org →
+                </a>
+            </div>
+        </div>
+        
+        <!-- TODO: Dynamic NGO Stats Integration -->
+        <!--
+        Real-time NGO donation tracking:
+        - Query Solana wallet addresses for each NGO
+        - Calculate donation amounts from fee distribution
+        - Update stats automatically via WebSocket
+        - Add verification badges for confirmed donations
+        - Link to specific donation transactions
+        -->
+    </div>
+</section>
+
+<!-- Transparency Metrics -->
+<section class="section-dashboard section-alt">
+    <div class="container">
+        <h2 class="dashboard-section-title reveal">Transparency Metrics</h2>
+        <p class="dashboard-section-desc reveal">On-chain verifiable proof of our commitments</p>
+        
+        <div class="transparency-badges">
+            <div class="transparency-badge reveal">
+                <span class="badge-icon">🔗</span>
+                <h3 class="badge-title">On-Chain Enforcement</h3>
+                <p class="badge-desc">Transfer fees built into Token-2022 program, not reliant on promises</p>
+            </div>
+            
+            <div class="transparency-badge reveal reveal-d1">
+                <span class="badge-icon">🔍</span>
+                <h3 class="badge-title">Public Verification</h3>
+                <p class="badge-desc">All donations trackable via Solana Explorer with transaction hashes</p>
+            </div>
+            
+            <div class="transparency-badge reveal reveal-d2">
+                <span class="badge-icon">🔒</span>
+                <h3 class="badge-title">Immutable Records</h3>
+                <p class="badge-desc">Blockchain-based audit trail that cannot be altered or deleted</p>
+            </div>
+            
+            <div class="transparency-badge reveal reveal-d3">
+                <span class="badge-icon">⚖️</span>
+                <h3 class="badge-title">Equal Distribution</h3>
+                <p class="badge-desc">Automated smart contract splits ensure fair allocation to all NGO partners</p>
+            </div>
+        </div>
+        
+        <!-- TODO: Real-time Verification Status -->
+        <!--
+        Live transparency indicators:
+        - Check smart contract authority status (renounced/active)
+        - Verify LP token burn status
+        - Display recent NGO wallet activity
+        - Show fee collection wallet balance
+        - Add "Last Updated" timestamps
+        - Link to relevant Solana Explorer pages
+        -->
+    </div>
+</section>
+
+<!-- Quarterly Reports -->
+<section class="section-dashboard">
+    <div class="container">
+        <h2 class="dashboard-section-title reveal">Quarterly Impact Reports</h2>
+        <p class="dashboard-section-desc reveal">Detailed breakdowns of funds raised and NGO impact achieved</p>
+        
+        <div class="coming-soon-section reveal reveal-d1">
+            <div class="coming-soon-icon">📈</div>
+            <h3 class="coming-soon-title">Coming Soon</h3>
+            <p class="coming-soon-desc">Quarterly reports will include donation summaries, NGO impact metrics, and community growth statistics. First report scheduled after launch.</p>
+            <div class="coming-soon-timeline">Q3 2026 — First Report</div>
+        </div>
+        
+        <!-- TODO: Quarterly Reports System -->
+        <!--
+        Features to implement:
+        - Automated quarterly data aggregation
+        - NGO impact story collection
+        - Community metrics dashboard
+        - PDF report generation
+        - Email distribution system
+        - Archive of historical reports
+        - Social media sharing tools
+        -->
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="links">
+    <div class="container center">
+        <div class="social-links">
+            <a href="https://twitter.com/Protect_Proj" target="_blank">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;vertical-align:middle"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Twitter
+            </a>
+            <a href="https://t.me/ProtectToken" target="_blank">✈️ Telegram</a>
+            <a href="whitepaper.html">📄 Whitepaper</a>
+            <a href="https://github.com/Protect-Official/protect-token" target="_blank">📂 GitHub</a>
+        </div>
+        <div class="footer-legal">
+            <a href="terms.html">Terms of Service</a>
+            <span>·</span>
+            <a href="privacy.html">Privacy Policy</a>
+            <span>·</span>
+            <a href="donation-process.html">Donation Process</a>
+        </div>
+        <p class="footer-mission">The files are open. Now we act.</p>
+        <p class="footer-disclaimer">$PROTECT is a memecoin. Not financial advice. DYOR. Crypto carries risk.</p>
+    </div>
+</footer>
+
+<script>
+// Navbar scroll behavior
+const nav = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+    nav.classList.toggle('nav-hide', window.scrollY > lastY && window.scrollY > 300);
+    lastY = window.scrollY;
+});
+
+// Mobile menu toggle
+const toggle = document.getElementById('nav-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('active');
+    mobileMenu.classList.remove('open');
+}));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const el = document.querySelector(a.getAttribute('href'));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Reveal animations on scroll
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { 
+        if (e.isIntersecting) { 
+            e.target.classList.add('revealed'); 
+            revealObs.unobserve(e.target); 
+        }
+    });
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObs.observe(el));
+
+// TODO: Real-time dashboard data updates
+// This section will be implemented when connecting to Solana mainnet
+
+/*
+// Solana Web3.js integration points:
+// 1. Connect to RPC endpoint
+const connection = new web3.Connection(web3.clusterApiUrl('mainnet-beta'));
+
+// 2. Query token transfer fees
+async function fetchFeeHistory() {
+    // Get signatures for fee collection wallet
+    // Parse TransferFee instruction data
+    // Update fee history table
+}
+
+// 3. Real-time NGO donation tracking
+async function updateNGOStats() {
+    // Query NGO wallet balances
+    // Calculate donation percentages
+    // Update dashboard cards
+}
+
+// 4. Transparency metrics verification
+async function verifyOnChainData() {
+    // Check smart contract status
+    // Verify LP burn transaction
+    // Update transparency badges
+}
+
+// 5. WebSocket for real-time updates
+function setupRealTimeUpdates() {
+    // Subscribe to account changes
+    // Listen for new transactions
+    // Auto-refresh dashboard data
+}
+
+// Initialize when token launches
+// setupRealTimeUpdates();
+// setInterval(fetchFeeHistory, 30000); // Update every 30 seconds
+// setInterval(updateNGOStats, 60000);   // Update every minute
+*/
+
+console.log('$PROTECT Dashboard loaded. Ready for mainnet integration.');
+</script>
+
+</body>
+</html>
