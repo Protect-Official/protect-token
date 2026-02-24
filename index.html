@@ -89,11 +89,14 @@
         </div>
 
         <div class="reveal reveal-d3 hero-buttons">
-            <a href="https://twitter.com/Protect_Proj" target="_blank" class="btn btn-primary">
+            <a href="#airdrop" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;vertical-align:middle"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Join FREE Airdrop
+            </a>
+            <a href="https://twitter.com/Protect_Proj" target="_blank" class="btn btn-ghost">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;vertical-align:middle"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 Follow on X
             </a>
-            <a href="#how-it-works" class="btn btn-ghost">How It Works ↓</a>
         </div>
 
         <!-- Countdown -->
@@ -137,6 +140,90 @@
                 <div class="step-num">03</div>
                 <h3>Children Protected</h3>
                 <p>Fees split: 0.5% to NGOs, 0.5% to operations, 0.5% to liquidity. All on-chain.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Transfer Fee Simulator -->
+<section class="section section-dark" id="fee-simulator">
+    <div class="container">
+        <h2 class="reveal">Transfer Fee Simulator</h2>
+        <p class="section-sub reveal">See exactly how much impact your trades make</p>
+        
+        <div class="simulator-card reveal">
+            <div class="simulator-input-section">
+                <label for="transfer-amount">Transfer Amount</label>
+                <div class="input-with-slider">
+                    <input type="number" id="transfer-amount" min="1000" max="1000000" value="10000" placeholder="10,000">
+                    <span class="token-label">$PROTECT</span>
+                </div>
+                <input type="range" id="amount-slider" min="1000" max="1000000" value="10000" step="1000" class="amount-slider">
+                <div class="slider-labels">
+                    <span>1K</span>
+                    <span>500K</span>
+                    <span>1M</span>
+                </div>
+            </div>
+
+            <div class="fee-breakdown">
+                <div class="breakdown-item">
+                    <div class="breakdown-header">
+                        <span class="breakdown-icon">💰</span>
+                        <span class="breakdown-label">Total Transfer Fee (1.5%)</span>
+                    </div>
+                    <div class="breakdown-value" id="total-fee">150</div>
+                </div>
+
+                <div class="breakdown-grid">
+                    <div class="breakdown-sub-item">
+                        <span class="sub-icon">💚</span>
+                        <span class="sub-label">NGO Donations</span>
+                        <span class="sub-value" id="ngo-fee">50</span>
+                    </div>
+                    <div class="breakdown-sub-item">
+                        <span class="sub-icon">👥</span>
+                        <span class="sub-label">Team Operations</span>
+                        <span class="sub-value" id="team-fee">50</span>
+                    </div>
+                    <div class="breakdown-sub-item">
+                        <span class="sub-icon">💧</span>
+                        <span class="sub-label">LP Reinvestment</span>
+                        <span class="sub-value" id="lp-fee">50</span>
+                    </div>
+                </div>
+
+                <div class="breakdown-item recipient-amount">
+                    <div class="breakdown-header">
+                        <span class="breakdown-icon">📨</span>
+                        <span class="breakdown-label">Recipient Receives</span>
+                    </div>
+                    <div class="breakdown-value" id="recipient-amount">9,850</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="volume-simulator reveal">
+            <h3>Impact Calculator</h3>
+            <p>See the potential donation impact based on trading volume</p>
+            <div class="volume-input-group">
+                <label for="daily-volume">Daily Trading Volume</label>
+                <div class="volume-input-wrapper">
+                    <span class="currency-symbol">$</span>
+                    <input type="number" id="daily-volume" min="1000" max="10000000" value="100000" step="1000">
+                </div>
+                <input type="range" id="volume-slider" min="1000" max="10000000" value="100000" step="1000" class="volume-slider">
+            </div>
+            
+            <div class="impact-results">
+                <div class="impact-item">
+                    <span class="impact-label">Quarterly NGO Donations</span>
+                    <span class="impact-value" id="quarterly-donations">$4,562</span>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-label">Annual Child Protection Funding</span>
+                    <span class="impact-value" id="annual-donations">$18,248</span>
+                </div>
             </div>
         </div>
     </div>
@@ -464,9 +551,9 @@
 <!-- Airdrop -->
 <section class="section section-dark" id="airdrop">
     <div class="container center">
-        <h2 class="reveal">🎁 Airdrop</h2>
-        <p class="airdrop-desc reveal">2% of total supply for early supporters. Follow, join, and you're in.</p>
-        <p class="wl-counter reveal"><span id="wl-count">0</span> on the waitlist</p>
+        <h2 class="reveal">🎁 FREE Airdrop — 2% Total Supply</h2>
+        <p class="airdrop-desc reveal">20 million $PROTECT tokens reserved for early supporters. Simple requirements: follow us on X and join the waitlist.</p>
+        <p class="wl-counter reveal"><span id="wl-count">0</span> early supporters joined • <strong style="color: #F5A623;">Limited time only</strong></p>
         <div class="airdrop-box reveal">
             <form id="airdrop-form">
                 <div class="input-group">
@@ -754,16 +841,52 @@ loadWaitlistCount();
 
 // Countdown — April 1, 2026
 (function() {
-    const L = new Date('2026-04-01T12:00:00Z').getTime();
-    function t() {
-        const d = L - Date.now();
-        if (d <= 0) { document.getElementById('countdown').innerHTML = '<p class="countdown-label">🚀 WE ARE LIVE</p>'; return; }
-        document.getElementById('cd-days').textContent = String(Math.floor(d/864e5)).padStart(2,'0');
-        document.getElementById('cd-hours').textContent = String(Math.floor(d%864e5/36e5)).padStart(2,'0');
-        document.getElementById('cd-mins').textContent = String(Math.floor(d%36e5/6e4)).padStart(2,'0');
-        document.getElementById('cd-secs').textContent = String(Math.floor(d%6e4/1e3)).padStart(2,'0');
+    const launchDate = new Date('2026-04-01T12:00:00Z').getTime();
+    
+    function updateCountdown() {
+        try {
+            const now = Date.now();
+            const timeDiff = launchDate - now;
+            
+            if (timeDiff <= 0) { 
+                const countdownEl = document.getElementById('countdown');
+                if (countdownEl) {
+                    countdownEl.innerHTML = '<p class="countdown-label">🚀 WE ARE LIVE</p>'; 
+                }
+                return; 
+            }
+            
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            // Update DOM elements if they exist
+            const daysEl = document.getElementById('cd-days');
+            const hoursEl = document.getElementById('cd-hours');
+            const minsEl = document.getElementById('cd-mins');
+            const secsEl = document.getElementById('cd-secs');
+            
+            if (daysEl) daysEl.textContent = String(days).padStart(2,'0');
+            if (hoursEl) hoursEl.textContent = String(hours).padStart(2,'0');
+            if (minsEl) minsEl.textContent = String(minutes).padStart(2,'0');
+            if (secsEl) secsEl.textContent = String(seconds).padStart(2,'0');
+            
+        } catch (error) {
+            console.error('Countdown timer error:', error);
+            // Fallback display
+            const countdownEl = document.getElementById('countdown');
+            if (countdownEl) {
+                countdownEl.innerHTML = '<p class="countdown-label">LAUNCHING APRIL 2026</p>';
+            }
+        }
     }
-    t(); setInterval(t, 1000);
+    
+    // Initial update
+    updateCountdown();
+    
+    // Update every second
+    setInterval(updateCountdown, 1000);
 })();
 </script>
 
