@@ -581,7 +581,7 @@
                     </label>
                     -->
                 </div>
-                <button type="submit" class="btn btn-primary btn-full" id="airdrop-submit">Join Waitlist 🛡️</button>
+                <button type="submit" class="btn btn-primary btn-full" id="airdrop-submit">Claim Your FREE Tokens 🛡️</button>
             </form>
             <div id="airdrop-success" style="display:none">
                 <div class="success-animation">
@@ -783,7 +783,7 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
             btn.textContent = 'Already registered!';
             btn.style.background = '#E74C3C';
             setTimeout(() => { 
-                btn.textContent = 'Join Waitlist 🛡️'; 
+                btn.textContent = 'Claim Your FREE Tokens 🛡️'; 
                 btn.style.background = ''; 
                 btn.disabled = false; 
             }, 3000);
@@ -818,7 +818,7 @@ document.getElementById('airdrop-form').addEventListener('submit', async e => {
         btn.textContent = 'Error — try again';
         btn.style.background = '#E74C3C';
         setTimeout(() => { 
-            btn.textContent = 'Join Waitlist 🛡️'; 
+            btn.textContent = 'Claim Your FREE Tokens 🛡️'; 
             btn.style.background = ''; 
             btn.disabled = false; 
         }, 3000);
@@ -887,6 +887,189 @@ loadWaitlistCount();
     
     // Update every second
     setInterval(updateCountdown, 1000);
+})();
+
+// Transfer Fee Simulator
+(function() {
+    const transferAmountInput = document.getElementById('transfer-amount');
+    const amountSlider = document.getElementById('amount-slider');
+    const dailyVolumeInput = document.getElementById('daily-volume');
+    const volumeSlider = document.getElementById('volume-slider');
+
+    // Elements to update
+    const totalFeeEl = document.getElementById('total-fee');
+    const ngoFeeEl = document.getElementById('ngo-fee');
+    const teamFeeEl = document.getElementById('team-fee');
+    const lpFeeEl = document.getElementById('lp-fee');
+    const recipientAmountEl = document.getElementById('recipient-amount');
+    const quarterlyDonationsEl = document.getElementById('quarterly-donations');
+    const annualDonationsEl = document.getElementById('annual-donations');
+
+    // Fee calculation function
+    function calculateFees(amount) {
+        // 1.5% total fee with max 100 tokens cap
+        const feePercent = 0.015;
+        const maxFee = 100;
+        const totalFee = Math.min(amount * feePercent, maxFee);
+        
+        // Split equally: 0.5% each
+        const ngoFee = totalFee / 3;
+        const teamFee = totalFee / 3;
+        const lpFee = totalFee / 3;
+        const recipientAmount = amount - totalFee;
+
+        return {
+            totalFee: totalFee,
+            ngoFee: ngoFee,
+            teamFee: teamFee,
+            lpFee: lpFee,
+            recipientAmount: recipientAmount
+        };
+    }
+
+    // Volume impact calculation
+    function calculateVolumeImpact(dailyVolume) {
+        // Assume daily volume translates to token transfers
+        // Using approximate token price (this would be dynamic in real implementation)
+        const estimatedTokenPrice = 0.001; // $0.001 per token
+        const dailyTokenVolume = dailyVolume / estimatedTokenPrice;
+        
+        // NGO share is 0.5% of transfer fee
+        const dailyNgoTokens = Math.min(dailyTokenVolume * 0.005, dailyTokenVolume * 0.015 / 3);
+        const dailyNgoDollars = dailyNgoTokens * estimatedTokenPrice;
+        
+        // Quarterly (90 days) and annual (365 days)
+        const quarterlyDonations = dailyNgoDollars * 90;
+        const annualDonations = dailyNgoDollars * 365;
+
+        return {
+            quarterly: quarterlyDonations,
+            annual: annualDonations
+        };
+    }
+
+    // Number formatting with animation
+    function animateNumber(element, newValue, formatter = null) {
+        if (!element) return;
+        
+        const currentValue = parseFloat(element.textContent.replace(/[,$]/g, '')) || 0;
+        const increment = (newValue - currentValue) / 20; // 20 steps
+        let step = 0;
+
+        const animate = () => {
+            step++;
+            const value = currentValue + (increment * step);
+            
+            if (formatter) {
+                element.textContent = formatter(value);
+            } else {
+                element.textContent = Math.round(value).toLocaleString();
+            }
+
+            if (step < 20) {
+                requestAnimationFrame(animate);
+            } else {
+                // Ensure final value is exact
+                if (formatter) {
+                    element.textContent = formatter(newValue);
+                } else {
+                    element.textContent = Math.round(newValue).toLocaleString();
+                }
+            }
+        };
+
+        requestAnimationFrame(animate);
+    }
+
+    // Update all calculations
+    function updateCalculations() {
+        const transferAmount = parseInt(transferAmountInput.value.replace(/[,$]/g, '')) || 0;
+        const dailyVolume = parseInt(dailyVolumeInput.value.replace(/[,$]/g, '')) || 0;
+
+        // Calculate transfer fees
+        const fees = calculateFees(transferAmount);
+        
+        // Animate fee updates
+        animateNumber(totalFeeEl, fees.totalFee);
+        animateNumber(ngoFeeEl, fees.ngoFee);
+        animateNumber(teamFeeEl, fees.teamFee);
+        animateNumber(lpFeeEl, fees.lpFee);
+        animateNumber(recipientAmountEl, fees.recipientAmount);
+
+        // Calculate volume impact
+        const impact = calculateVolumeImpact(dailyVolume);
+        
+        // Animate impact updates
+        animateNumber(quarterlyDonationsEl, impact.quarterly, (val) => '$' + Math.round(val).toLocaleString());
+        animateNumber(annualDonationsEl, impact.annual, (val) => '$' + Math.round(val).toLocaleString());
+    }
+
+    // Sync input and slider for transfer amount
+    function syncTransferAmount() {
+        const value = Math.max(1000, Math.min(1000000, parseInt(this.value.replace(/[,$]/g, '')) || 1000));
+        transferAmountInput.value = value.toLocaleString();
+        amountSlider.value = value;
+        updateCalculations();
+    }
+
+    // Sync input and slider for daily volume
+    function syncDailyVolume() {
+        const value = Math.max(1000, Math.min(10000000, parseInt(this.value.replace(/[,$]/g, '')) || 1000));
+        dailyVolumeInput.value = value.toLocaleString();
+        volumeSlider.value = value;
+        updateCalculations();
+    }
+
+    // Format number input as user types
+    function formatNumberInput(input) {
+        input.addEventListener('input', function() {
+            let value = this.value.replace(/[^0-9]/g, '');
+            if (value) {
+                this.value = parseInt(value).toLocaleString();
+            }
+        });
+
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.value = input.id === 'transfer-amount' ? '1,000' : '100,000';
+                updateCalculations();
+            }
+        });
+    }
+
+    // Event listeners
+    if (transferAmountInput && amountSlider) {
+        transferAmountInput.addEventListener('input', syncTransferAmount);
+        transferAmountInput.addEventListener('blur', syncTransferAmount);
+        amountSlider.addEventListener('input', function() {
+            transferAmountInput.value = parseInt(this.value).toLocaleString();
+            updateCalculations();
+        });
+        formatNumberInput(transferAmountInput);
+    }
+
+    if (dailyVolumeInput && volumeSlider) {
+        dailyVolumeInput.addEventListener('input', syncDailyVolume);
+        dailyVolumeInput.addEventListener('blur', syncDailyVolume);
+        volumeSlider.addEventListener('input', function() {
+            dailyVolumeInput.value = parseInt(this.value).toLocaleString();
+            updateCalculations();
+        });
+        formatNumberInput(dailyVolumeInput);
+    }
+
+    // Initial calculation
+    if (transferAmountInput) {
+        transferAmountInput.value = '10,000';
+        amountSlider.value = 10000;
+    }
+    if (dailyVolumeInput) {
+        dailyVolumeInput.value = '100,000';
+        volumeSlider.value = 100000;
+    }
+    
+    // Small delay to ensure DOM is ready
+    setTimeout(updateCalculations, 100);
 })();
 </script>
 
