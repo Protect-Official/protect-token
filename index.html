@@ -151,7 +151,7 @@
         <h2 class="reveal">Transfer Fee Simulator</h2>
         <p class="section-sub reveal">See exactly how much impact your trades make</p>
         
-        <div class="simulator-card reveal">
+        <div class="simulator-card reveal" style="background:linear-gradient(145deg,rgba(245,166,35,0.05),rgba(255,255,255,0.02));border:1px solid rgba(245,166,35,0.15);border-radius:24px;padding:40px 36px;max-width:800px;margin:0 auto 48px;">
             <div class="simulator-input-section">
                 <label for="transfer-amount">Transfer Amount</label>
                 <div class="input-with-slider">
@@ -166,46 +166,46 @@
                 </div>
             </div>
 
-            <div class="fee-breakdown">
-                <div class="breakdown-item">
-                    <div class="breakdown-header">
-                        <span class="breakdown-icon">💰</span>
-                        <span class="breakdown-label">Total Transfer Fee (1.5%)</span>
+            <div class="fee-breakdown" style="margin-top:32px;">
+                <div class="breakdown-item" style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:rgba(255,255,255,0.03);border-radius:12px;margin-bottom:12px;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M6 12h12"/></svg>
+                        <span style="color:rgba(232,236,241,0.7);font-size:14px;">Total Transfer Fee (1.5%)</span>
                     </div>
-                    <div class="breakdown-value" id="total-fee">150</div>
+                    <div class="breakdown-value" id="total-fee" style="font-size:24px;font-weight:700;color:#F5A623;">150</div>
                 </div>
 
-                <div class="breakdown-grid">
-                    <div class="breakdown-sub-item">
-                        <span class="sub-icon">💚</span>
-                        <span class="sub-label">NGO Donations</span>
-                        <span class="sub-value" id="ngo-fee">50</span>
+                <div class="breakdown-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;">
+                    <div class="breakdown-sub-item" style="background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:16px;padding:20px 16px;text-align:center;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="1.5" style="margin-bottom:8px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        <div class="sub-label" style="display:block;font-size:12px;color:rgba(232,236,241,0.5);margin-bottom:6px;">NGO Donations</div>
+                        <div class="sub-value" id="ngo-fee" style="font-size:20px;font-weight:700;color:#2ECC71;">50</div>
                     </div>
-                    <div class="breakdown-sub-item">
-                        <span class="sub-icon">👥</span>
-                        <span class="sub-label">Team Operations</span>
-                        <span class="sub-value" id="team-fee">50</span>
+                    <div class="breakdown-sub-item" style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:16px;padding:20px 16px;text-align:center;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5" style="margin-bottom:8px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <div class="sub-label" style="display:block;font-size:12px;color:rgba(232,236,241,0.5);margin-bottom:6px;">Team Operations</div>
+                        <div class="sub-value" id="team-fee" style="font-size:20px;font-weight:700;color:#F5A623;">50</div>
                     </div>
-                    <div class="breakdown-sub-item">
-                        <span class="sub-icon">💧</span>
-                        <span class="sub-label">LP Reinvestment</span>
-                        <span class="sub-value" id="lp-fee">50</span>
+                    <div class="breakdown-sub-item" style="background:rgba(52,152,219,0.06);border:1px solid rgba(52,152,219,0.15);border-radius:16px;padding:20px 16px;text-align:center;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498DB" stroke-width="1.5" style="margin-bottom:8px;"><path d="M12 2v20M2 12h20"/></svg>
+                        <div class="sub-label" style="display:block;font-size:12px;color:rgba(232,236,241,0.5);margin-bottom:6px;">LP Reinvestment</div>
+                        <div class="sub-value" id="lp-fee" style="font-size:20px;font-weight:700;color:#3498DB;">50</div>
                     </div>
                 </div>
 
-                <div class="breakdown-item recipient-amount">
-                    <div class="breakdown-header">
-                        <span class="breakdown-icon">📨</span>
-                        <span class="breakdown-label">Recipient Receives</span>
+                <div class="breakdown-item recipient-amount" style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:rgba(46,204,113,0.05);border:1px solid rgba(46,204,113,0.15);border-radius:12px;margin-top:12px;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2ECC71" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span style="color:rgba(232,236,241,0.7);font-size:14px;">Recipient Receives</span>
                     </div>
-                    <div class="breakdown-value" id="recipient-amount">9,850</div>
+                    <div class="breakdown-value" id="recipient-amount" style="font-size:24px;font-weight:700;color:#2ECC71;">9,850</div>
                 </div>
             </div>
         </div>
 
-        <div class="volume-simulator reveal">
-            <h3>Impact Calculator</h3>
-            <p>See the potential donation impact based on trading volume</p>
+        <div class="volume-simulator reveal" style="background:linear-gradient(145deg,rgba(245,166,35,0.05),rgba(255,255,255,0.02));border:1px solid rgba(245,166,35,0.15);border-radius:24px;padding:40px 36px;max-width:800px;margin:0 auto;">
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#fff;text-align:center;margin-bottom:8px;">📊 Impact Calculator</h3>
+            <p style="text-align:center;color:rgba(232,236,241,0.6);margin-bottom:28px;">See the potential donation impact based on trading volume</p>
             <div class="volume-input-group">
                 <label for="daily-volume">Daily Trading Volume</label>
                 <div class="volume-input-wrapper">
@@ -215,14 +215,14 @@
                 <input type="range" id="volume-slider" min="1000" max="10000000" value="100000" step="1000" class="volume-slider">
             </div>
             
-            <div class="impact-results">
-                <div class="impact-item">
-                    <span class="impact-label">Quarterly NGO Donations</span>
-                    <span class="impact-value" id="quarterly-donations">$4,562</span>
+            <div class="impact-results" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px;">
+                <div class="impact-item" style="background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="impact-label" style="font-size:12px;color:rgba(232,236,241,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Quarterly NGO Donations</div>
+                    <div class="impact-value" id="quarterly-donations" style="font-size:28px;font-weight:700;color:#2ECC71;">$4,562</div>
                 </div>
-                <div class="impact-item">
-                    <span class="impact-label">Annual Child Protection Funding</span>
-                    <span class="impact-value" id="annual-donations">$18,248</span>
+                <div class="impact-item" style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="impact-label" style="font-size:12px;color:rgba(232,236,241,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Annual Child Protection Funding</div>
+                    <div class="impact-value" id="annual-donations" style="font-size:28px;font-weight:700;color:#F5A623;">$18,248</div>
                 </div>
             </div>
         </div>
