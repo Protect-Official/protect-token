@@ -71,6 +71,11 @@
 
         @media (max-width: 700px) {
             .split-cards, .ngo-cards { grid-template-columns: 1fr; }
+            .flow-grid { grid-template-columns: 1fr !important; grid-template-rows: auto !important; gap: 12px !important; }
+            .flow-grid .flow-arrow { display: none; }
+            .flow-grid .flow-arrow-down { display: block !important; text-align: center; color: #F5A623; font-size: 24px; }
+            .flow-grid .flow-step-3 { order: 3; }
+            .flow-grid .flow-step-4 { order: 4; }
             .flow-step { display: block; margin: 8px auto; }
             .flow-arrow { display: block; margin: 4px auto; }
         }
@@ -117,7 +122,7 @@
         <h2>The Flow</h2>
         <p>Every time someone buys, sells, or transfers $PROTECT, a <strong>1.5% fee is automatically collected</strong> by the Solana blockchain itself. Not by us — by the code.</p>
 
-        <div style="display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;gap:12px 16px;align-items:center;max-width:600px;margin:32px auto;text-align:center;">
+        <div class="flow-grid" style="display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;gap:12px 16px;align-items:center;max-width:600px;margin:32px auto;text-align:center;">
             <!-- Row 1: Step 1 → Step 2 -->
             <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:16px;padding:20px;">
                 <div style="width:44px;height:44px;background:rgba(245,166,35,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;">
@@ -126,7 +131,7 @@
                 <div style="font-weight:600;color:#fff;font-size:13px;">You Trade</div>
                 <div style="color:rgba(232,236,241,0.5);font-size:11px;margin-top:4px;">Buy or sell $PROTECT</div>
             </div>
-            <div style="color:#F5A623;font-size:24px;">→</div>
+            <div class="flow-arrow" style="color:#F5A623;font-size:24px;">→</div>
             <div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:16px;padding:20px;">
                 <div style="width:44px;height:44px;background:rgba(245,166,35,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -135,9 +140,9 @@
                 <div style="color:rgba(232,236,241,0.5);font-size:11px;margin-top:4px;">Auto by protocol</div>
             </div>
             <!-- Row 2: Arrow down (center) -->
-            <div></div>
-            <div></div>
-            <div style="text-align:center;color:#F5A623;font-size:24px;">↓</div>
+            <div class="flow-arrow"></div>
+            <div class="flow-arrow"></div>
+            <div class="flow-arrow" style="text-align:center;color:#F5A623;font-size:24px;">↓</div>
             <!-- Row 3: Step 4 ← Step 3 -->
             <div style="background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:16px;padding:20px;">
                 <div style="width:44px;height:44px;background:rgba(46,204,113,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;">
@@ -146,7 +151,7 @@
                 <div style="font-weight:600;color:#fff;font-size:13px;">Children Protected</div>
                 <div style="color:rgba(232,236,241,0.5);font-size:11px;margin-top:4px;">Real-world impact</div>
             </div>
-            <div style="color:#2ECC71;font-size:24px;">←</div>
+            <div class="flow-arrow" style="color:#2ECC71;font-size:24px;">←</div>
             <div style="background:rgba(52,152,219,0.06);border:1px solid rgba(52,152,219,0.15);border-radius:16px;padding:20px;">
                 <div style="width:44px;height:44px;background:rgba(52,152,219,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3498DB" stroke-width="1.5"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
