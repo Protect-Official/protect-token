@@ -305,13 +305,24 @@
             <img src="https://raw.githubusercontent.com/Protect-Official/protect-token/main/assets/logo.png" alt="$PROTECT" class="nav-logo-img">
             <span>$PROTECT</span>
         </a>
-        <div class="nav-links">
-            <a href="index.html#how-it-works">How It Works</a>
-            <a href="index.html#tokenomics">Tokenomics</a>
-            <a href="donation-process.html">Donations</a>
-            <a href="dashboard.html" style="color: #F5A623;">Dashboard</a>
-            <a href="index.html#roadmap">Roadmap</a>
-            <a href="whitepaper.html">Whitepaper</a>
+                <div class="nav-links">
+            <div class="nav-dropdown">
+                <a href="index.html#how-it-works" class="nav-dropdown-toggle">About ▾</a>
+                <div class="nav-dropdown-menu">
+                    <a href="index.html#how-it-works">How It Works</a>
+                    <a href="index.html#tokenomics">Tokenomics</a>
+                    <a href="index.html#roadmap">Roadmap</a>
+                    <a href="whitepaper.html">Whitepaper</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <a href="index.html#transparency" class="nav-dropdown-toggle">Trust ▾</a>
+                <div class="nav-dropdown-menu">
+                    <a href="index.html#transparency">Transparency</a>
+                    <a href="donation-process.html">Donation Process</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+            </div>
             <a href="index.html#airdrop" class="btn btn-sm btn-primary">Join Airdrop</a>
         </div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
@@ -322,13 +333,20 @@
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html#how-it-works">How It Works</a>
-    <a href="index.html#tokenomics">Tokenomics</a>
-    <a href="donation-process.html">Donations</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="index.html#roadmap">Roadmap</a>
-    <a href="whitepaper.html">Whitepaper</a>
-    <a href="index.html#airdrop">Join Airdrop</a>
+    <div class="mobile-menu-group">
+        <span class="mobile-menu-label">About</span>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#tokenomics">Tokenomics</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="whitepaper.html">Whitepaper</a>
+    </div>
+    <div class="mobile-menu-group">
+        <span class="mobile-menu-label">Trust</span>
+        <a href="index.html#transparency">Transparency</a>
+        <a href="donation-process.html">Donation Process</a>
+        <a href="dashboard.html">Dashboard</a>
+    </div>
+    <a href="index.html#airdrop" class="btn btn-primary" style="margin-top:12px;text-align:center;">Join Airdrop</a>
 </div>
 
 <!-- Dashboard Hero -->
