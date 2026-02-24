@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://protect-official.github.io/protect-token/sitemap.xml
+
+# Crawl delay (optional, be nice to servers)
+Crawl-delay: 1
